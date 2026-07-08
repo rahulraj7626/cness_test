@@ -1,0 +1,1 @@
+enum LoginMethods { google, facebook }

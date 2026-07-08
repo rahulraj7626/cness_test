@@ -1,0 +1,119 @@
+{
+  "feeds": [
+    {
+      "user": {
+        "name": "Nandhiji",
+        "profile_image": "https://picsum.photos/100?random=1",
+        "last_active": "2 hours ago",
+        "verified": true,
+        "tags": 0,
+        "type": "Public"
+      },
+      "post": {
+        "title": "Yoga is not about touching your toes. It's about what you learn on the way down.",
+        "assets": [
+          {
+            "type": "image",
+            "url": "https://picsum.photos/600/600?random=11"
+          },
+          {
+            "type": "image",
+            "url": "https://picsum.photos/600/600?random=12"
+          },
+          {
+            "type": "image",
+            "url": "https://picsum.photos/600/600?random=13"
+          }
+        ],
+        "likes": 1700,
+        "comments": 1300,
+        "reaction": "heart",
+        "featured_comment": {
+          "user": "Mark Ramos",
+          "comment": "Great work!",
+          "time": "2m"
+        }
+      }
+    },
+    {
+      "user": {
+        "name": "Sophia Carter",
+        "profile_image": "https://picsum.photos/100?random=2",
+        "last_active": "5 hours ago",
+        "verified": false,
+        "tags": 5,
+        "type": "Friends"
+      },
+      "post": {
+        "title": "Spent the morning hiking through the mountains. Nature is the best therapy.",
+        "assets": [],
+        "likes": 845,
+        "comments": 126,
+        "reaction": "star",
+        "featured_comment": {
+          "user": "Emily Ross",
+          "comment": "Looks peaceful!",
+          "time": "10m"
+        }
+      }
+    },
+    {
+      "user": {
+        "name": "David Wilson",
+        "profile_image": "https://picsum.photos/100?random=3",
+        "last_active": "30 minutes ago",
+        "verified": true,
+        "tags": 2,
+        "type": "Public"
+      },
+      "post": {
+        "title": "Excited to launch our new community initiative next week. Stay tuned!",
+        "assets": [
+          {
+            "type": "image",
+            "url": "https://picsum.photos/600/600?random=21"
+          }
+        ],
+        "likes": 2340,
+        "comments": 542,
+        "reaction": "like",
+        "featured_comment": {
+          "user": "John Mathew",
+          "comment": "Congratulations! Looking forward to it.",
+          "time": "18m"
+        }
+      }
+    },
+    {
+      "user": {
+        "name": "Erica Sinclair",
+        "profile_image": "https://picsum.photos/100?random=4",
+        "last_active": "Yesterday",
+        "verified": true,
+        "tags": 1,
+        "type": "Private"
+      },
+      "post": {
+        "title": "Every small step you take today becomes tomorrow's success.",
+        "assets": [
+          {
+            "type": "image",
+            "url": "https://picsum.photos/600/600?random=31"
+          },
+          {
+            "type": "image",
+            "url": "https://picsum.photos/600/600?random=32"
+          }
+        ],
+        "likes": 965,
+        "comments": 214,
+        "reaction": "clap",
+        "featured_comment": {
+          "user": "Sarah Lee",
+          "comment": "Very inspiring ❤️",
+          "time": "1h"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+    "profile": {
+        "name": "Nandhiji",
+        "specialization": [
+            "Yoga Master",
+            "Environmentalist"
+        ],
+        "quote": ""
+    },
+    "basic_info": {
+        "interests": [
+            "Walking",
+            "Trekking",
+            "Yoga"
+        ],
+        "profession": [
+            "Designing",
+            "Teacher"
+        ]
+    },
+    "contact": {
+        "email": "nandhji@cness.co",
+        "country_code": "454",
+        "phone": "726-0592",
+        "address": "Suite 212, Workafella",
+        "location": "Los Angeles, California, United States"
+    },
+    "experience": [
+        {
+            "role": "Lead Project",
+            "company": "Cness INC",
+            "start_date": "Mar 18",
+            "end_date": "Apr 18",
+            "location": "Los Angeles, California",
+            "responsibilities": [
+                "Develop user flow based on target personas",
+                "Brainstorm user interface concepts"
+            ]
+        },
+        {
+            "role": "UI/UX Designer",
+            "company": "WCD",
+            "start_date": "Mar 18",
+            "end_date": "Apr 18",
+            "location": "Los Angeles, California",
+            "responsibilities": []
+        }
+    ],
+    "education": [
+        {
+            "course": "Business Administration",
+            "school": "University of California",
+            "start_date": "Mar 18",
+            "end_date": "Apr 18",
+            "location": "Los Angeles, California",
+            "responsibilities": [
+                "Develop user flow based on target personas",
+                "Brainstorm user interface concepts"
+            ]
+        },
+        {
+            "course": "High School Diploma",
+            "school": "Lincoln High School",
+            "start_date": "Mar 18",
+            "end_date": "Apr 18",
+            "location": "Portland",
+            "responsibilities": [
+                "Develop user flow based on target personas",
+                "Brainstorm user interface concepts"
+            ]
+        }
+    ]
+}
