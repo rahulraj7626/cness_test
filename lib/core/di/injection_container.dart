@@ -16,8 +16,10 @@ import 'package:cness_test/features/profile/domain/usecases/profile_usecase.dart
 import 'package:cness_test/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:get_it/get_it.dart';
 
+///Create instance of getit
 final sl = GetIt.instance;
 
+///Initialise all dependancy classess and blocs , repositories here
 Future<void> init() async {
   /// Blocs
   sl.registerFactory(() => AuthBloc());

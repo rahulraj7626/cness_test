@@ -1,9 +1,11 @@
-class StringContants {
-  StringContants._();
+class AppString {
+  AppString._();
 
+  ///AppString Singleton class define constant string here
   ///Auth constants
   static const getStarted = 'Get Started';
-  static const subtitle = 'Create an account or log in to explore our app';
+  static const createAnAccount =
+      'Create an account or log in to explore our app';
   static const login = 'Log In';
   static const signUp = 'Sign Up';
   static const email = 'Email';
@@ -19,7 +21,7 @@ class StringContants {
   static const continueWithGoogle = 'Continue with Google';
   static const continueWithFacebook = 'Continue with Facebook';
   static const emailRequired = 'Email is required';
-  static const invalidEmail = 'Please enter a valid email address';
+
   static const passwordRequired = 'Password is required';
   static const passwordTooShort = 'Password must be at least 8 characters';
 
@@ -73,9 +75,14 @@ class StringContants {
   ///Toasters
   static const fb =
       'Facebook login clicked. Please enter your email and password to continue.';
+
+  static const loginSuccess = 'Login Successful';
   static const google =
       'Google login clicked. Please enter your email and password to continue.';
 
   static const loginValid =
-      'Invalid credentials, Use email as user@email.com and password as "User@123" to continue.';
+      'Invalid credentials, Use email as "user@email.com" and password as "User@123" to continue.';
+  static const invalidEmail = 'Please enter a valid email address';
+  static const invalidPassword =
+      'Password must be at least 8 characters and include an uppercase letter, a lowercase letter, a number, and a special character';
 }

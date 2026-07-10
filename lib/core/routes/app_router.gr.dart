@@ -12,18 +12,46 @@ part of 'app_router.dart';
 
 /// generated route for
 /// [AuthScreen]
-class AuthScreenRoute extends PageRouteInfo<void> {
-  const AuthScreenRoute({List<PageRouteInfo>? children})
-    : super(AuthScreenRoute.name, initialChildren: children);
+class AuthScreenRoute extends PageRouteInfo<AuthScreenRouteArgs> {
+  AuthScreenRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        AuthScreenRoute.name,
+        args: AuthScreenRouteArgs(key: key),
+        initialChildren: children,
+      );
 
   static const String name = 'AuthScreenRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const AuthScreen();
+      final args = data.argsAs<AuthScreenRouteArgs>(
+        orElse: () => const AuthScreenRouteArgs(),
+      );
+      return AuthScreen(key: args.key);
     },
   );
+}
+
+class AuthScreenRouteArgs {
+  const AuthScreenRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AuthScreenRouteArgs{key: $key}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AuthScreenRouteArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -38,22 +66,6 @@ class HomeScreenRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const HomeScreen();
-    },
-  );
-}
-
-/// generated route for
-/// [LoginTabScreen]
-class LoginTabScreenRoute extends PageRouteInfo<void> {
-  const LoginTabScreenRoute({List<PageRouteInfo>? children})
-    : super(LoginTabScreenRoute.name, initialChildren: children);
-
-  static const String name = 'LoginTabScreenRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const LoginTabScreen();
     },
   );
 }

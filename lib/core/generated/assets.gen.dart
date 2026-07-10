@@ -129,8 +129,26 @@ class $AssetsImagesGen {
   /// File path: assets/images/exp2.png
   AssetGenImage get exp2 => const AssetGenImage('assets/images/exp2.png');
 
+  /// File path: assets/images/home_bg.png
+  AssetGenImage get homeBg => const AssetGenImage('assets/images/home_bg.png');
+
+  /// File path: assets/images/login bg.png
+  AssetGenImage get loginBg =>
+      const AssetGenImage('assets/images/login bg.png');
+
+  /// File path: assets/images/profile_bg.png
+  AssetGenImage get profileBg =>
+      const AssetGenImage('assets/images/profile_bg.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [education, exp1, exp2];
+  List<AssetGenImage> get values => [
+    education,
+    exp1,
+    exp2,
+    homeBg,
+    loginBg,
+    profileBg,
+  ];
 }
 
 class $AssetsJsonGen {

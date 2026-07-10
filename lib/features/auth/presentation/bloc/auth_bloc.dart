@@ -15,17 +15,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<OnSocialLoginEvent>(onSocialLoginEvent);
   }
 
+  /// Implimention logic OnLoginEvent
   Future<void> onLoginEvent(OnLoginEvent event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     await Future.delayed(Duration(seconds: 1));
-    if (event.cred.email.toLowerCase().trim() == "user@email.com" &&
-        event.cred.password.toLowerCase().trim() == "user@123") {
+    if (event.cred.email.toLowerCase() == "user@email.com" &&
+        event.cred.password.toLowerCase() == "user@123") {
       emit(AuthSuccessState());
     } else {
-      emit(AuthErrorState(msg: StringContants.loginValid));
+      emit(AuthErrorState(msg: AppString.loginValid));
     }
   }
 
+  /// Implimention logic OnSocialLoginEvent
   Future<void> onSocialLoginEvent(
     OnSocialLoginEvent event,
     Emitter<AuthState> emit,
@@ -33,8 +35,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(OnSocialLoadingState(type: event.type));
     await Future.delayed(Duration(seconds: 2));
     final msg = event.type == LoginMethods.facebook
-        ? StringContants.facebook
-        : StringContants.google;
-    emit(OnSocialLoginState(type: event.type, msg: msg));
+        ? AppString.facebook
+        : AppString.google;
+    emit(OnSocialLoginState(msg: msg));
   }
 }

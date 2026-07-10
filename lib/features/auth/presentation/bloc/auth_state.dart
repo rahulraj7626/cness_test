@@ -11,23 +11,26 @@ class AuthInitial extends AuthState {}
 
 class AuthLoading extends AuthState {}
 
+///Auth error emit any auth error scenario
 class AuthErrorState extends AuthState {
   final String msg;
 
   const AuthErrorState({required this.msg});
 }
 
+///Emit any kind of auth success even Social and Email password
 class AuthSuccessState extends AuthState {}
 
+///For handle social login toaster purpose only later can use AuthSuccessState
 class OnSocialLoginState extends AuthState {
   final String msg;
-  final LoginMethods type;
 
-  const OnSocialLoginState({required this.msg, required this.type});
+  const OnSocialLoginState({required this.msg});
   @override
-  List<Object> get props => [msg, type];
+  List<Object> get props => [msg];
 }
 
+///For handle social login loading states and indication only for now only
 class OnSocialLoadingState extends AuthState {
   final LoginMethods type;
 

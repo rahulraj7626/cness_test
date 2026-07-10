@@ -1,3 +1,4 @@
+///Login entity for input fields
 class LoginEntity {
   final String email;
   final String password;

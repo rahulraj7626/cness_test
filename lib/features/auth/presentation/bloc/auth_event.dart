@@ -7,11 +7,13 @@ abstract class AuthEvent extends Equatable {
   List<Object> get props => [];
 }
 
+///For email passsword login
 class OnLoginEvent extends AuthEvent {
   final LoginEntity cred;
   const OnLoginEvent({required this.cred});
 }
 
+///For OnSocialLogin login
 class OnSocialLoginEvent extends AuthEvent {
   final LoginMethods type;
 

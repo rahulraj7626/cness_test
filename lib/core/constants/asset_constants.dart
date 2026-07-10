@@ -1,3 +1,0 @@
-class AssetConstants {
-  AssetConstants._();
-}
