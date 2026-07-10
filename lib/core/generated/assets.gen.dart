@@ -59,9 +59,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/icons/logo.svg');
 
-  /// File path: assets/icons/notification.svg
-  SvgGenImage get notification =>
-      const SvgGenImage('assets/icons/notification.svg');
+  /// File path: assets/icons/notifications.svg
+  SvgGenImage get notifications =>
+      const SvgGenImage('assets/icons/notifications.svg');
 
   /// File path: assets/icons/practices.svg
   SvgGenImage get practices => const SvgGenImage('assets/icons/practices.svg');
@@ -104,7 +104,7 @@ class $AssetsIconsGen {
     like,
     liveVideo,
     logo,
-    notification,
+    notifications,
     practices,
     search,
     share,
@@ -118,6 +118,10 @@ class $AssetsIconsGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/app_icon.png
+  AssetGenImage get appIcon =>
+      const AssetGenImage('assets/images/app_icon.png');
 
   /// File path: assets/images/education.png
   AssetGenImage get education =>
@@ -142,6 +146,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+    appIcon,
     education,
     exp1,
     exp2,

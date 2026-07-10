@@ -55,17 +55,17 @@ class AuthScreenRouteArgs {
 }
 
 /// generated route for
-/// [HomeScreen]
-class HomeScreenRoute extends PageRouteInfo<void> {
-  const HomeScreenRoute({List<PageRouteInfo>? children})
-    : super(HomeScreenRoute.name, initialChildren: children);
+/// [HomeRoot]
+class HomeRootRoute extends PageRouteInfo<void> {
+  const HomeRootRoute({List<PageRouteInfo>? children})
+    : super(HomeRootRoute.name, initialChildren: children);
 
-  static const String name = 'HomeScreenRoute';
+  static const String name = 'HomeRootRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const HomeScreen();
+      return const HomeRoot();
     },
   );
 }

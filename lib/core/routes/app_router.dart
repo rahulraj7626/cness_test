@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cness_test/features/home/presentation/pages/home_root.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/pages/auth_screen.dart';
-import '../../features/home/presentation/pages/home.dart';
 import '../../features/profile/presentation/pages/profile_screen.dart';
 
 part 'app_router.gr.dart';
@@ -16,8 +16,8 @@ part 'app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(page: HomeScreenRoute.page, initial: true),
+    AutoRoute(page: HomeRootRoute.page, initial: false),
     AutoRoute(page: AuthScreenRoute.page, initial: false),
-    AutoRoute(page: ProfileScreenRoute.page, initial: false),
+    AutoRoute(page: ProfileScreenRoute.page, initial: true),
   ];
 }
