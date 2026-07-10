@@ -88,6 +88,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/watsap.svg
   SvgGenImage get watsap => const SvgGenImage('assets/icons/watsap.svg');
 
+  /// File path: assets/icons/website.svg
+  SvgGenImage get website => const SvgGenImage('assets/icons/website.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
     ai,
@@ -113,6 +116,7 @@ class $AssetsIconsGen {
     verified,
     visibility,
     watsap,
+    website,
   ];
 }
 
@@ -122,6 +126,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/app_icon.png
   AssetGenImage get appIcon =>
       const AssetGenImage('assets/images/app_icon.png');
+
+  /// File path: assets/images/app_icon12.png
+  AssetGenImage get appIcon12 =>
+      const AssetGenImage('assets/images/app_icon12.png');
 
   /// File path: assets/images/education.png
   AssetGenImage get education =>
@@ -140,6 +148,9 @@ class $AssetsImagesGen {
   AssetGenImage get loginBg =>
       const AssetGenImage('assets/images/login bg.png');
 
+  /// File path: assets/images/profile.png
+  AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
+
   /// File path: assets/images/profile_bg.png
   AssetGenImage get profileBg =>
       const AssetGenImage('assets/images/profile_bg.png');
@@ -147,11 +158,13 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
     appIcon,
+    appIcon12,
     education,
     exp1,
     exp2,
     homeBg,
     loginBg,
+    profile,
     profileBg,
   ];
 }
