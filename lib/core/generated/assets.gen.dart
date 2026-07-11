@@ -20,6 +20,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ai.svg
   SvgGenImage get ai => const SvgGenImage('assets/icons/ai.svg');
 
+  /// File path: assets/icons/bag.svg
+  SvgGenImage get bag => const SvgGenImage('assets/icons/bag.svg');
+
   /// File path: assets/icons/bottom2.svg
   SvgGenImage get bottom2 => const SvgGenImage('assets/icons/bottom2.svg');
 
@@ -59,9 +62,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/icons/logo.svg');
 
-  /// File path: assets/icons/notification.svg
-  SvgGenImage get notification =>
-      const SvgGenImage('assets/icons/notification.svg');
+  /// File path: assets/icons/notifications.svg
+  SvgGenImage get notifications =>
+      const SvgGenImage('assets/icons/notifications.svg');
+
+  /// File path: assets/icons/photo.svg
+  SvgGenImage get photo => const SvgGenImage('assets/icons/photo.svg');
+
+  /// File path: assets/icons/plus.svg
+  SvgGenImage get plus => const SvgGenImage('assets/icons/plus.svg');
 
   /// File path: assets/icons/practices.svg
   SvgGenImage get practices => const SvgGenImage('assets/icons/practices.svg');
@@ -81,6 +90,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/verified.svg
   SvgGenImage get verified => const SvgGenImage('assets/icons/verified.svg');
 
+  /// File path: assets/icons/video.svg
+  SvgGenImage get video => const SvgGenImage('assets/icons/video.svg');
+
   /// File path: assets/icons/visibility.svg
   SvgGenImage get visibility =>
       const SvgGenImage('assets/icons/visibility.svg');
@@ -88,9 +100,13 @@ class $AssetsIconsGen {
   /// File path: assets/icons/watsap.svg
   SvgGenImage get watsap => const SvgGenImage('assets/icons/watsap.svg');
 
+  /// File path: assets/icons/website.svg
+  SvgGenImage get website => const SvgGenImage('assets/icons/website.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
     ai,
+    bag,
     bottom2,
     bottom3,
     bottom4,
@@ -104,20 +120,45 @@ class $AssetsIconsGen {
     like,
     liveVideo,
     logo,
-    notification,
+    notifications,
+    photo,
+    plus,
     practices,
     search,
     share,
     star,
     tiktok,
     verified,
+    video,
     visibility,
     watsap,
+    website,
   ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/app_icon.png
+  AssetGenImage get appIcon =>
+      const AssetGenImage('assets/images/app_icon.png');
+
+  /// File path: assets/images/app_icon12.png
+  AssetGenImage get appIcon12 =>
+      const AssetGenImage('assets/images/app_icon12.png');
+
+  /// File path: assets/images/community1.png
+  AssetGenImage get community1 =>
+      const AssetGenImage('assets/images/community1.png');
+
+  /// File path: assets/images/dp1.png
+  AssetGenImage get dp1 => const AssetGenImage('assets/images/dp1.png');
+
+  /// File path: assets/images/dp2.png
+  AssetGenImage get dp2 => const AssetGenImage('assets/images/dp2.png');
+
+  /// File path: assets/images/dp3.png
+  AssetGenImage get dp3 => const AssetGenImage('assets/images/dp3.png');
 
   /// File path: assets/images/education.png
   AssetGenImage get education =>
@@ -136,18 +177,52 @@ class $AssetsImagesGen {
   AssetGenImage get loginBg =>
       const AssetGenImage('assets/images/login bg.png');
 
+  /// File path: assets/images/profile.png
+  AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
+
   /// File path: assets/images/profile_bg.png
   AssetGenImage get profileBg =>
       const AssetGenImage('assets/images/profile_bg.png');
 
+  /// File path: assets/images/story1.png
+  AssetGenImage get story1 => const AssetGenImage('assets/images/story1.png');
+
+  /// File path: assets/images/story2.png
+  AssetGenImage get story2 => const AssetGenImage('assets/images/story2.png');
+
+  /// File path: assets/images/story3.png
+  AssetGenImage get story3 => const AssetGenImage('assets/images/story3.png');
+
+  /// File path: assets/images/yoga1.png
+  AssetGenImage get yoga1 => const AssetGenImage('assets/images/yoga1.png');
+
+  /// File path: assets/images/yoga2.png
+  AssetGenImage get yoga2 => const AssetGenImage('assets/images/yoga2.png');
+
+  /// File path: assets/images/yoga3.png
+  AssetGenImage get yoga3 => const AssetGenImage('assets/images/yoga3.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+    appIcon,
+    appIcon12,
+    community1,
+    dp1,
+    dp2,
+    dp3,
     education,
     exp1,
     exp2,
     homeBg,
     loginBg,
+    profile,
     profileBg,
+    story1,
+    story2,
+    story3,
+    yoga1,
+    yoga2,
+    yoga3,
   ];
 }
 

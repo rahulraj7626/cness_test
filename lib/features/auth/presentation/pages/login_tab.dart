@@ -60,7 +60,7 @@ class _LoginTabScreenState extends State<LoginTabScreen> {
     AppToaster.success(AppString.loginSuccess);
     emailController.clear();
     passwordController.clear();
-    context.router.replaceAll([const HomeScreenRoute()]);
+    context.router.replaceAll([const HomeRootRoute()]);
   }
 
   @override
