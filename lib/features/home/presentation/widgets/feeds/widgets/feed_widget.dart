@@ -8,6 +8,7 @@ import 'package:cness_test/core/routes/app_router.dart';
 import 'package:cness_test/core/shared/widgets/icon_widget.dart';
 import 'package:cness_test/features/home/domain/entities/community_entity.dart';
 import 'package:cness_test/features/home/domain/entities/feed_entity.dart';
+import 'package:cness_test/features/home/presentation/widgets/menus/floating_menu.dart';
 import 'package:flutter/material.dart';
 
 ///Post widget list
@@ -195,10 +196,12 @@ class FeedPostWidget extends StatelessWidget {
           ),
         ),
       ),
-      CircleAvatar(
-        radius: AppSpacing.s16,
-        backgroundColor: AppColors.greySecondary,
-        child: const Icon(Icons.more_horiz, color: AppColors.blackSecondary),
+      MoreMenuButton(
+        child: CircleAvatar(
+          radius: AppSpacing.s16,
+          backgroundColor: AppColors.greySecondary,
+          child: const Icon(Icons.more_horiz, color: AppColors.blackSecondary),
+        ),
       ),
     ],
   );

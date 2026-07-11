@@ -5,6 +5,7 @@ import 'package:cness_test/features/home/presentation/bloc/home_bloc.dart';
 import 'package:cness_test/features/home/presentation/pages/dummy_page.dart';
 import 'package:cness_test/features/home/presentation/pages/home_body.dart';
 import 'package:cness_test/features/home/presentation/widgets/custom_bottom_nav_bar.dart';
+import 'package:cness_test/features/home/presentation/widgets/menus/floating_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -46,13 +47,15 @@ class _HomeRootState extends State<HomeRoot> {
           },
         ),
         floatingActionButton: _selectedIndex == 0
-            ? CircleAvatar(
-                radius: 30,
-                backgroundColor: AppColors.blueSecondary,
-                child: const Icon(
-                  Icons.add_to_photos,
-                  color: AppColors.white,
-                  size: 26,
+            ? FloatingMenuButton(
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: AppColors.blueSecondary,
+                  child: const Icon(
+                    Icons.add_to_photos,
+                    color: AppColors.white,
+                    size: 26,
+                  ),
                 ),
               )
             : null,

@@ -71,6 +71,13 @@ class AppString {
   static const communities = 'Communities';
   static const seeMore = 'See More';
   static const seeLess = 'See Less';
+  static const copyPostLink = 'Copy post link';
+  static const saveThisPost = 'Save this post';
+  static const report = 'Report';
+  static const notInterested = 'Not interested';
+  static const addPost = 'Add Post';
+  static const addBestPractise = 'Add Best practise';
+  static const shareLegacyProfile = 'Share Legacy Profile';
 
   ///Toasters
   static const fb =
