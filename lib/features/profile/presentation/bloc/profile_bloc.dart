@@ -23,7 +23,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
     try {
       final result = await profileUsecase.call(NoParams());
-
       result.fold(
         (error) => emit(ProfileErrorState(message: error.toString())),
         (result) => emit(ProfileLoadedState(user: result)),

@@ -1,14 +1,20 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/constants/app_spacing.dart';
+import 'package:cness_test/core/extentions/int_extentions.dart';
 import 'package:cness_test/core/extentions/size_extention.dart';
 import 'package:cness_test/core/generated/assets.gen.dart';
+import 'package:cness_test/core/routes/app_router.dart';
 import 'package:cness_test/core/shared/widgets/icon_widget.dart';
+import 'package:cness_test/features/home/domain/entities/community_entity.dart';
+import 'package:cness_test/features/home/domain/entities/feed_entity.dart';
+import 'package:cness_test/features/home/presentation/widgets/menus/floating_menu.dart';
 import 'package:flutter/material.dart';
 
 ///Post widget list
 class FeedPostWidget extends StatelessWidget {
-  final bool hasImages;
-  const FeedPostWidget({super.key, required this.hasImages});
+  final FeedEntity data;
+  const FeedPostWidget({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -25,77 +31,64 @@ class FeedPostWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ///Header post owner widget
-          _header(),
+          _header(context, data.user),
           AppSpacing.s16.height,
 
           ///Content widget the text area
-          _postContent(),
+          _postContent(data.post?.title ?? ''),
 
           ///If Image list widget if images available
-          if (hasImages) ...[AppSpacing.s16.height, _postImages()],
+          if ((data.post?.assets ?? []).isNotEmpty) ...[
+            AppSpacing.s16.height,
+            _postImages(data.post?.assets ?? []),
+          ],
 
           ///Bottom section like share comment
-          _bottomWidget(),
-          const Divider(color: AppColors.greyBorder, height: AppSpacing.s24),
+          _bottomWidget(data.post),
 
           ///Highlighted comments section
-          _bottomComments(),
+          if (data.post?.featuredComment != null) ...[
+            const Divider(color: AppColors.greyBorder, height: AppSpacing.s24),
+            GestureDetector(
+              onTap: () => context.pushRoute(ProfileScreenRoute()),
+              child: _bottomComments(data.post?.featuredComment),
+            ),
+          ],
         ],
       ),
     );
   }
 
   ///The post description
-  Text _postContent() {
-    return const Text(
-      'Hey pals ✨ Happy to share that I\'ve completed a set of yoga-themed photos, flowing with calming hues and mindful vibrations 🌸🧘‍♀️',
+  Text _postContent(String description) {
+    return Text(
+      description,
       style: TextStyle(fontSize: AppSpacing.s13, color: AppColors.blackText),
     );
   }
 
   ///Image widget
-  SizedBox _postImages() {
+  SizedBox _postImages(List<AssetEntity> data) {
     return SizedBox(
       height: 200,
-      child: Stack(
-        children: [
-          Row(
-            spacing: AppSpacing.s8,
-            children: [
-              _imageItem(Assets.images.yoga1.path),
-              _imageItem(Assets.images.yoga2.path),
-              _imageItem(Assets.images.yoga3.path),
-            ],
-          ),
-          Positioned(
-            bottom: AppSpacing.s12,
-            right: AppSpacing.s12,
-            child: CircleAvatar(
-              radius: AppSpacing.s20,
-              backgroundColor: AppColors.blueSecondary,
-              child: const Icon(
-                Icons.add_to_photos,
-                color: AppColors.white,
-                size: AppSpacing.s20,
-              ),
-            ),
-          ),
-        ],
+      child: Row(
+        spacing: AppSpacing.s8,
+        children: data.map((item) => _imageItem(item)).toList(),
       ),
     );
   }
 
-  Widget _imageItem(String asset) => Expanded(
+  Widget _imageItem(AssetEntity asset) => Expanded(
     child: ClipRRect(
       borderRadius: BorderRadius.circular(AppSpacing.s12),
       child: SizedBox.expand(
-        child: AppIcon(asset: asset, fit: BoxFit.cover),
+        child: AppIcon(asset: asset.url, fit: BoxFit.cover),
       ),
     ),
   );
 
   ///Bottom comemnt section
-  Widget _bottomComments() => Row(
+  Widget _bottomComments(FeaturedCommentEntity? data) => Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       CircleAvatar(
@@ -108,7 +101,7 @@ class FeedPostWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Mark Ramos',
+              data?.user ?? '',
               style: TextStyle(
                 fontSize: AppSpacing.s12,
                 fontWeight: FontWeight.w600,
@@ -117,10 +110,19 @@ class FeedPostWidget extends StatelessWidget {
             ),
             AppSpacing.s4.height,
             Text(
-              'Greet work! Well done girl. 👏',
+              data?.comment ?? '',
               style: TextStyle(
                 fontSize: AppSpacing.s10,
                 color: AppColors.blackSecondary,
+              ),
+            ),
+            AppSpacing.s4.height,
+            Text(
+              'Like    Comment    ${data?.time ?? ''}',
+              style: TextStyle(
+                fontSize: AppSpacing.s10,
+                fontWeight: FontWeight.w600,
+                color: AppColors.blackText,
               ),
             ),
           ],
@@ -137,60 +139,69 @@ class FeedPostWidget extends StatelessWidget {
   );
 
   ///Header widget
-  Widget _header() => Row(
+  Widget _header(BuildContext context, FeedUserEntity? data) => Row(
     children: [
-      CircleAvatar(
-        radius: AppSpacing.s20,
-        backgroundImage: AssetImage(Assets.images.dp1.path),
+      GestureDetector(
+        onTap: () => context.pushRoute(ProfileScreenRoute()),
+        child: CircleAvatar(
+          radius: AppSpacing.s20,
+          backgroundImage: AssetImage(Assets.images.dp1.path),
+        ),
       ),
       AppSpacing.s12.width,
       Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  'Anna Mary',
-                  style: TextStyle(
-                    fontSize: AppSpacing.s14,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.blackText,
+        child: GestureDetector(
+          onTap: () => context.pushRoute(ProfileScreenRoute()),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    data?.name ?? '',
+                    style: TextStyle(
+                      fontSize: AppSpacing.s14,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.blackText,
+                    ),
                   ),
-                ),
-                AppSpacing.s4.width,
-                Icon(
-                  Icons.verified,
-                  color: AppColors.bluePrimary,
-                  size: AppSpacing.s16,
-                ),
-              ],
-            ),
-            AppSpacing.s2.width,
-            Row(
-              children: [
-                Icon(
-                  Icons.public,
-                  color: AppColors.blackSecondary,
-                  size: AppSpacing.s12,
-                ),
-                AppSpacing.s4.width,
-                Text(
-                  '2 Hours ago',
-                  style: TextStyle(
-                    fontSize: AppSpacing.s10,
+                  AppSpacing.s4.width,
+                  if (data?.verified == true)
+                    Icon(
+                      Icons.verified,
+                      color: AppColors.bluePrimary,
+                      size: AppSpacing.s16,
+                    ),
+                ],
+              ),
+              AppSpacing.s2.width,
+              Row(
+                children: [
+                  Icon(
+                    Icons.public,
                     color: AppColors.blackSecondary,
+                    size: AppSpacing.s12,
                   ),
-                ),
-              ],
-            ),
-          ],
+                  AppSpacing.s4.width,
+                  Text(
+                    data?.lastActive ?? "",
+                    style: TextStyle(
+                      fontSize: AppSpacing.s10,
+                      color: AppColors.blackSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
-      CircleAvatar(
-        radius: AppSpacing.s16,
-        backgroundColor: AppColors.greySecondary,
-        child: const Icon(Icons.more_horiz, color: AppColors.blackSecondary),
+      MoreMenuButton(
+        child: CircleAvatar(
+          radius: AppSpacing.s16,
+          backgroundColor: AppColors.greySecondary,
+          child: const Icon(Icons.more_horiz, color: AppColors.blackSecondary),
+        ),
       ),
     ],
   );
@@ -206,21 +217,21 @@ class FeedPostWidget extends StatelessWidget {
     );
   }
 
-  Column _bottomWidget() => Column(
+  Column _bottomWidget(PostEntity? data) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       AppSpacing.s16.height,
       Row(
         children: [
-          const Text(
-            '361k Likes . ',
+          Text(
+            '${data?.likes.compact} Likes . ',
             style: TextStyle(
               fontSize: AppSpacing.s10,
               color: AppColors.blueSecondary,
             ),
           ),
-          const Text(
-            '3.4k Comments . 46 Shares',
+          Text(
+            '${data?.comments.compact} Comments . ${data?.shares.compact} Shares',
             style: TextStyle(
               fontSize: AppSpacing.s10,
               color: AppColors.blackSecondary,
@@ -247,11 +258,13 @@ class FeedPostWidget extends StatelessWidget {
               color: AppColors.blackSecondary,
             ),
           ),
-          const SizedBox(width: 8),
-          const Icon(
-            Icons.favorite,
-            color: AppColors.red,
-            size: AppSpacing.s20,
+          AppSpacing.s8.width,
+          AppIcon(
+            asset: data?.reaction == 'like'
+                ? Assets.icons.like.path
+                : data?.reaction == 'heart'
+                ? Assets.icons.heart.path
+                : Assets.icons.star.path,
           ),
         ],
       ),

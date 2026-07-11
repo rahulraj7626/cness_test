@@ -46,6 +46,7 @@ extension ExperienceModelMapper on ExperienceModel {
     return ExperienceEntity(
       role: role,
       company: company,
+      image: image,
       startDate: startDate,
       endDate: endDate,
       location: location,
@@ -62,6 +63,7 @@ extension EducationModelMapper on EducationModel {
       startDate: startDate,
       endDate: endDate,
       location: location,
+      image: image,
       responsibilities: responsibilities,
     );
   }

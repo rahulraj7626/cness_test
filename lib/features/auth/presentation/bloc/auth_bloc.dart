@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cness_test/core/constants/string_contants.dart';
+import 'package:cness_test/core/utils/preferance_utils.dart';
 import 'package:cness_test/features/auth/domain/entities/login_entity.dart';
 import 'package:cness_test/features/auth/domain/enums/auth_enums.dart';
 import 'package:equatable/equatable.dart';
@@ -21,6 +22,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     await Future.delayed(Duration(seconds: 1));
     if (event.cred.email.toLowerCase() == "user@email.com" &&
         event.cred.password.toLowerCase() == "user@123") {
+      SharedUtils.setIsLogin(true);
       emit(AuthSuccessState());
     } else {
       emit(AuthErrorState(msg: AppString.loginValid));

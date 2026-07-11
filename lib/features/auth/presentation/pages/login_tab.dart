@@ -142,7 +142,8 @@ class _LoginTabScreenState extends State<LoginTabScreen> {
               // Explore without login
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () =>
+                      context.router.replaceAll([const HomeRootRoute()]),
                   child: const Text(
                     AppString.exploreWithoutLogin,
                     style: TextStyle(

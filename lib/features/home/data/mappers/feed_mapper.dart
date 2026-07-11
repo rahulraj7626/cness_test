@@ -34,6 +34,7 @@ extension PostModelMapper on PostModel {
       assets: assets?.map((e) => e.toEntity()).toList() ?? [],
       likes: likes ?? 0,
       comments: comments ?? 0,
+      shares: shares ?? 0,
       reaction: reaction ?? '',
       featuredComment: featuredComment?.toEntity(),
     );

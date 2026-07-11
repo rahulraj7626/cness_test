@@ -1,13 +1,16 @@
 import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/constants/app_spacing.dart';
+import 'package:cness_test/core/constants/string_contants.dart';
+import 'package:cness_test/core/extentions/int_extentions.dart';
 import 'package:cness_test/core/extentions/size_extention.dart';
-import 'package:cness_test/core/generated/assets.gen.dart';
 import 'package:cness_test/core/shared/widgets/icon_widget.dart';
+import 'package:cness_test/features/home/domain/entities/community_entity.dart';
 import 'package:flutter/material.dart';
 
 ///Community list widget in between posts
 class CommunityWidget extends StatelessWidget {
-  const CommunityWidget({super.key});
+  final List<CommunityEntity> data;
+  const CommunityWidget({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +22,9 @@ class CommunityWidget extends StatelessWidget {
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: 5,
+            itemCount: data.length,
             padding: EdgeInsets.symmetric(horizontal: AppSpacing.s16),
-            itemBuilder: (context, i) => _itemWidget(),
+            itemBuilder: (context, i) => _itemWidget(data[i]),
           ),
         ),
       ],
@@ -39,7 +42,7 @@ class CommunityWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Communities you might like',
+            AppString.communities,
             style: TextStyle(
               fontSize: AppSpacing.s16,
               fontWeight: FontWeight.w600,
@@ -47,7 +50,7 @@ class CommunityWidget extends StatelessWidget {
             ),
           ),
           Text(
-            'See all',
+            AppString.seeAll,
             style: TextStyle(
               fontSize: AppSpacing.s12,
               fontWeight: FontWeight.w600,
@@ -60,7 +63,7 @@ class CommunityWidget extends StatelessWidget {
   }
 
   ///List item widget
-  Widget _itemWidget() => Container(
+  Widget _itemWidget(CommunityEntity data) => Container(
     width: 300,
     margin: EdgeInsets.only(right: AppSpacing.s16),
     decoration: BoxDecoration(
@@ -69,11 +72,11 @@ class CommunityWidget extends StatelessWidget {
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [_imageWidget(), _bottomWidget()],
+      children: [_imageWidget(data.asset), _bottomWidget(data)],
     ),
   );
 
-  Padding _bottomWidget() {
+  Padding _bottomWidget(CommunityEntity data) {
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.s12),
       child: Row(
@@ -89,7 +92,7 @@ class CommunityWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'InnerPeace',
+                  data.title,
                   style: TextStyle(
                     fontSize: AppSpacing.s12,
                     fontWeight: FontWeight.w600,
@@ -98,7 +101,7 @@ class CommunityWidget extends StatelessWidget {
                 ),
 
                 Text(
-                  '274kmembers . 10 posts a day',
+                  '${data.members.compact} members . ${data.posts.compact} posts a day',
                   style: TextStyle(
                     fontSize: AppSpacing.s10,
                     color: AppColors.blackSecondary,
@@ -130,17 +133,14 @@ class CommunityWidget extends StatelessWidget {
     );
   }
 
-  Expanded _imageWidget() {
+  Expanded _imageWidget(AssetEntity data) {
     return Expanded(
       child: Stack(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(AppSpacing.s16)),
             child: SizedBox.expand(
-              child: AppIcon(
-                asset: Assets.images.community1.path,
-                fit: BoxFit.cover,
-              ),
+              child: AppIcon(asset: data.url, fit: BoxFit.cover),
             ),
           ),
           Positioned(

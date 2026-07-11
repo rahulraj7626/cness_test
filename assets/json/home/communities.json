@@ -4,41 +4,21 @@
             "title": "Inner Peace",
             "asset": {
                 "type": "image",
-                "url": "https://picsum.photos/600/600?random=31"
+                "url": "assets/images/community1.png"
             },
-            "members": 25,
-            "posts": 10,
+            "members": 2500,
+            "posts": 1200,
             "frequency": "Daily"
         },
         {
             "title": "Yoga for Life",
             "asset": {
                 "type": "image",
-                "url": "https://picsum.photos/600/600?random=32"
+                "url": "assets/images/community1.png"
             },
             "members": 120,
             "posts": 48,
             "frequency": "Weekly"
-        },
-        {
-            "title": "Nature Lovers",
-            "asset": {
-                "type": "image",
-                "url": "https://picsum.photos/600/600?random=33"
-            },
-            "members": 340,
-            "posts": 96,
-            "frequency": "Daily"
-        },
-        {
-            "title": "Mindful Living",
-            "asset": {
-                "type": "image",
-                "url": "https://picsum.photos/600/600?random=34"
-            },
-            "members": 82,
-            "posts": 21,
-            "frequency": "Monthly"
         }
     ]
 }

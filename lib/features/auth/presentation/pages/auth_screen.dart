@@ -23,13 +23,15 @@ class AuthScreen extends StatelessWidget {
       body: BlocProvider(
         create: (context) => AuthBloc(),
         child: CustomScrollView(
+          physics: const ClampingScrollPhysics(),
           slivers: [
             TopAppbar(),
-            SliverToBoxAdapter(
+            SliverFillRemaining(
+              hasScrollBody: false,
               child: Container(
                 decoration: const BoxDecoration(gradient: AppColors.bgGradient),
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(24),

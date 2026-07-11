@@ -5,7 +5,7 @@
             "Yoga Master",
             "Environmentalist"
         ],
-        "quote": ""
+        "quote": "“Building spaces for people to learn and connect.  Powered by design and technology.”"
     },
     "basic_info": {
         "interests": [
@@ -32,6 +32,7 @@
             "start_date": "Mar 18",
             "end_date": "Apr 18",
             "location": "Los Angeles, California",
+            "image": "assets/images/exp1.png",
             "responsibilities": [
                 "Develop user flow based on target personas",
                 "Brainstorm user interface concepts"
@@ -43,6 +44,7 @@
             "start_date": "Mar 18",
             "end_date": "Apr 18",
             "location": "Los Angeles, California",
+            "image": "assets/images/exp2.png",
             "responsibilities": []
         }
     ],
@@ -53,6 +55,7 @@
             "start_date": "Mar 18",
             "end_date": "Apr 18",
             "location": "Los Angeles, California",
+            "image": "assets/images/education.png",
             "responsibilities": [
                 "Develop user flow based on target personas",
                 "Brainstorm user interface concepts"
@@ -64,6 +67,7 @@
             "start_date": "Mar 18",
             "end_date": "Apr 18",
             "location": "Portland",
+            "image": "assets/images/education.png",
             "responsibilities": [
                 "Develop user flow based on target personas",
                 "Brainstorm user interface concepts"

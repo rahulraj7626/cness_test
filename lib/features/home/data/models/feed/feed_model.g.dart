@@ -56,6 +56,7 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) => PostModel(
       .toList(),
   likes: (json['likes'] as num?)?.toInt(),
   comments: (json['comments'] as num?)?.toInt(),
+  shares: (json['shares'] as num?)?.toInt(),
   reaction: json['reaction'] as String?,
   featuredComment: json['featured_comment'] == null
       ? null
@@ -68,6 +69,7 @@ Map<String, dynamic> _$PostModelToJson(PostModel instance) => <String, dynamic>{
   'title': instance.title,
   'assets': instance.assets?.map((e) => e.toJson()).toList(),
   'likes': instance.likes,
+  'shares': instance.shares,
   'comments': instance.comments,
   'reaction': instance.reaction,
   'featured_comment': instance.featuredComment?.toJson(),
