@@ -37,7 +37,7 @@ class MarketRow extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: AppSpacing.s10,
-          vertical: AppSpacing.s6,
+          vertical: AppSpacing.s8,
         ),
         margin: EdgeInsets.symmetric(horizontal: AppSpacing.s4),
         decoration: BoxDecoration(
@@ -52,7 +52,7 @@ class MarketRow extends StatelessWidget {
             Text(
               text,
               style: TextStyle(
-                fontSize: AppSpacing.s12,
+                fontSize: AppSpacing.s14,
                 fontWeight: FontWeight.w500,
                 color: AppColors.blackPrimary,
               ),

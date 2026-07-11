@@ -40,7 +40,7 @@ class SocialRow extends StatelessWidget {
         Text(
           text,
           style: TextStyle(
-            fontSize: AppSpacing.s12,
+            fontSize: AppSpacing.s14,
             fontWeight: FontWeight.w400,
             color: AppColors.white,
           ),

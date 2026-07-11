@@ -2,12 +2,17 @@ import 'package:cness_test/core/di/injection_container.dart' as di;
 import 'package:cness_test/core/di/injection_container.dart';
 import 'package:cness_test/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// Application entry point.
 /// Initializes dependencies and launches the app.
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MyApp());
 }
 

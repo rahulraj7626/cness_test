@@ -38,7 +38,7 @@ class TopPositioedWidget extends StatelessWidget {
         Text(
           (data?.specialization ?? []).joinLine,
           style: TextStyle(
-            fontSize: AppSpacing.s14,
+            fontSize: AppSpacing.s16,
             fontWeight: FontWeight.w400,
             color: AppColors.white,
           ),

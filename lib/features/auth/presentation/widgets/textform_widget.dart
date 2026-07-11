@@ -55,7 +55,7 @@ class _TextformWidgetState extends State<TextformWidget> {
         RichText(
           text: TextSpan(
             text: '${widget.label} ',
-            style: AppTextStyles.bodyXSmall,
+            style: AppTextStyles.bodySmall,
             children: [
               if (widget.isRequired)
                 const TextSpan(text: '*', style: AppTextStyles.errorText),
@@ -70,6 +70,7 @@ class _TextformWidgetState extends State<TextformWidget> {
           keyboardType: widget.type == InputType.email
               ? TextInputType.emailAddress
               : null,
+
           decoration: InputDecoration(
             errorMaxLines: 3,
             contentPadding: EdgeInsets.symmetric(
