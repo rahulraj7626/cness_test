@@ -1,17 +1,58 @@
-# cness_test
+# Flutter Clean Architecture
 
-A new Flutter project.
+A Flutter project built using **Clean Architecture**, **BLoC**, and **Feature-First** architecture.
 
-## Getting Started
+## Architecture
 
-This project is a starting point for a Flutter application.
+- Clean Architecture
+- BLoC State Management
+- AutoRoute (Navigation)
+- GetIt (Dependency Injection)
+- SharedPreferences (Local Storage)
+- Json (Asset) Data
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Login
+- Home
+- Profile
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Data Flow
+
+```
+JSON (Asset)
+  ↓
+Data Source
+  ↓
+Model
+  ↓
+Repository
+  ↓
+Entity
+  ↓
+Use Case
+  ↓
+BLoC
+  ↓
+UI
+```
+
+## Setup
+
+Install dependencies:
+
+```bash
+flutter pub get
+```
+
+Generate code:
+
+```bash
+dart run build_runner build --delete-conflicting-outputs
+```
+
+Run the app:
+
+```bash
+flutter run
+```
