@@ -112,7 +112,7 @@ class _LoginTabScreenState extends State<LoginTabScreen> {
                       Text(
                         AppString.rememberMe,
                         style: TextStyle(
-                          fontSize: AppSpacing.s12,
+                          fontSize: AppSpacing.s14,
                           color: AppColors.blackSecondary,
                           fontWeight: FontWeight.w500,
                         ),
@@ -124,7 +124,7 @@ class _LoginTabScreenState extends State<LoginTabScreen> {
                     child: const Text(
                       AppString.forgotPassword,
                       style: TextStyle(
-                        fontSize: AppSpacing.s12,
+                        fontSize: AppSpacing.s14,
                         color: AppColors.bluePrimary,
                         fontWeight: FontWeight.w500,
                       ),
@@ -148,7 +148,8 @@ class _LoginTabScreenState extends State<LoginTabScreen> {
                     AppString.exploreWithoutLogin,
                     style: TextStyle(
                       decoration: TextDecoration.underline,
-                      fontSize: AppSpacing.s12,
+                      decorationColor: AppColors.bluePrimary,
+                      fontSize: AppSpacing.s14,
                       color: AppColors.bluePrimary,
                       fontWeight: FontWeight.w500,
                     ),

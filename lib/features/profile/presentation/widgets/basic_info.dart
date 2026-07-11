@@ -13,20 +13,20 @@ class BasicInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _itemWidget(data?.interests ?? []),
+        _itemWidget(data?.interests ?? [], AppString.interest),
         AppSpacing.s12.height,
-        _itemWidget(data?.profession ?? []),
+        _itemWidget(data?.profession ?? [], AppString.professions),
       ],
     );
   }
 
-  Column _itemWidget(List<String> data) => Column(
+  Column _itemWidget(List<String> data, String title) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        AppString.interest,
+        title,
         style: TextStyle(
-          fontSize: AppSpacing.s12,
+          fontSize: AppSpacing.s14,
           fontWeight: FontWeight.w400,
           color: AppColors.blueDark,
         ),
@@ -56,7 +56,7 @@ class BasicInfo extends StatelessWidget {
     child: Text(
       label,
       style: TextStyle(
-        fontSize: AppSpacing.s12,
+        fontSize: AppSpacing.s14,
         fontWeight: FontWeight.w500,
         color: AppColors.white,
       ),

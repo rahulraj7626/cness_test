@@ -32,23 +32,25 @@ class FeedPostWidget extends StatelessWidget {
         children: [
           ///Header post owner widget
           _header(context, data.user),
-          AppSpacing.s16.height,
+          AppSpacing.s12.height,
 
           ///Content widget the text area
           _postContent(data.post?.title ?? ''),
 
           ///If Image list widget if images available
           if ((data.post?.assets ?? []).isNotEmpty) ...[
-            AppSpacing.s16.height,
+            AppSpacing.s12.height,
             _postImages(data.post?.assets ?? []),
+            AppSpacing.s6.height,
           ],
+          AppSpacing.s4.height,
 
           ///Bottom section like share comment
           _bottomWidget(data.post),
 
           ///Highlighted comments section
           if (data.post?.featuredComment != null) ...[
-            const Divider(color: AppColors.greyBorder, height: AppSpacing.s24),
+            const Divider(color: AppColors.greyBorder, height: AppSpacing.s20),
             GestureDetector(
               onTap: () => context.pushRoute(ProfileScreenRoute()),
               child: _bottomComments(data.post?.featuredComment),
@@ -63,7 +65,7 @@ class FeedPostWidget extends StatelessWidget {
   Text _postContent(String description) {
     return Text(
       description,
-      style: TextStyle(fontSize: AppSpacing.s13, color: AppColors.blackText),
+      style: TextStyle(fontSize: AppSpacing.s14, color: AppColors.blackText),
     );
   }
 
@@ -103,24 +105,24 @@ class FeedPostWidget extends StatelessWidget {
             Text(
               data?.user ?? '',
               style: TextStyle(
-                fontSize: AppSpacing.s12,
+                fontSize: AppSpacing.s14,
                 fontWeight: FontWeight.w600,
                 color: AppColors.blackText,
               ),
             ),
-            AppSpacing.s4.height,
+
             Text(
               data?.comment ?? '',
               style: TextStyle(
-                fontSize: AppSpacing.s10,
+                fontSize: AppSpacing.s12,
                 color: AppColors.blackSecondary,
               ),
             ),
-            AppSpacing.s4.height,
+            AppSpacing.s2.height,
             Text(
               'Like    Comment    ${data?.time ?? ''}',
               style: TextStyle(
-                fontSize: AppSpacing.s10,
+                fontSize: AppSpacing.s12,
                 fontWeight: FontWeight.w600,
                 color: AppColors.blackText,
               ),
@@ -186,7 +188,7 @@ class FeedPostWidget extends StatelessWidget {
                   Text(
                     data?.lastActive ?? "",
                     style: TextStyle(
-                      fontSize: AppSpacing.s10,
+                      fontSize: AppSpacing.s12,
                       color: AppColors.blackSecondary,
                     ),
                   ),
@@ -220,27 +222,26 @@ class FeedPostWidget extends StatelessWidget {
   Column _bottomWidget(PostEntity? data) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      AppSpacing.s16.height,
       Row(
         children: [
           Text(
             '${data?.likes.compact} Likes . ',
             style: TextStyle(
-              fontSize: AppSpacing.s10,
+              fontSize: AppSpacing.s12,
               color: AppColors.blueSecondary,
             ),
           ),
           Text(
             '${data?.comments.compact} Comments . ${data?.shares.compact} Shares',
             style: TextStyle(
-              fontSize: AppSpacing.s10,
+              fontSize: AppSpacing.s12,
               color: AppColors.blackSecondary,
             ),
           ),
         ],
       ),
 
-      AppSpacing.s16.height,
+      AppSpacing.s8.height,
 
       // Actions
       Row(
