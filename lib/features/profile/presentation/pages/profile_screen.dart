@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     Text(
                                       profileData?.profile.quote ?? '',
                                       style: TextStyle(
-                                        fontSize: AppSpacing.s12,
+                                        fontSize: AppSpacing.s14,
                                         fontWeight: FontWeight.w400,
                                         color: AppColors.white,
                                       ),

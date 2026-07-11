@@ -52,7 +52,7 @@ class CommunityWidget extends StatelessWidget {
           Text(
             AppString.seeAll,
             style: TextStyle(
-              fontSize: AppSpacing.s12,
+              fontSize: AppSpacing.s14,
               fontWeight: FontWeight.w600,
               color: AppColors.blueSecondary,
             ),
@@ -64,7 +64,7 @@ class CommunityWidget extends StatelessWidget {
 
   ///List item widget
   Widget _itemWidget(CommunityEntity data) => Container(
-    width: 300,
+    width: 360,
     margin: EdgeInsets.only(right: AppSpacing.s16),
     decoration: BoxDecoration(
       color: AppColors.white,
@@ -103,7 +103,7 @@ class CommunityWidget extends StatelessWidget {
                 Text(
                   '${data.members.compact} members . ${data.posts.compact} posts a day',
                   style: TextStyle(
-                    fontSize: AppSpacing.s10,
+                    fontSize: AppSpacing.s12,
                     color: AppColors.blackSecondary,
                   ),
                 ),

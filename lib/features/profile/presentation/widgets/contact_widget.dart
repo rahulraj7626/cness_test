@@ -23,14 +23,14 @@ class ContactWidget extends StatelessWidget {
   }
 
   Padding _itemWidget(String key, String value) => Padding(
-    padding: const EdgeInsets.symmetric(vertical: AppSpacing.s6),
+    padding: const EdgeInsets.symmetric(vertical: AppSpacing.s4),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           key,
           style: TextStyle(
-            fontSize: AppSpacing.s12,
+            fontSize: AppSpacing.s14,
             fontWeight: FontWeight.w500,
             color: AppColors.blueDark,
           ),
@@ -39,7 +39,7 @@ class ContactWidget extends StatelessWidget {
         Text(
           value,
           style: TextStyle(
-            fontSize: AppSpacing.s14,
+            fontSize: AppSpacing.s16,
             fontWeight: FontWeight.w500,
             color: AppColors.blackPrimary,
           ),

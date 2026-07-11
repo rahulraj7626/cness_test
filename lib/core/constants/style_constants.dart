@@ -41,14 +41,14 @@ class AppTextStyles {
   );
 
   static const TextStyle hintText = TextStyle(
-    fontSize: 12.0,
+    fontSize: 14.0,
     fontWeight: FontWeight.normal,
     color: Colors.grey,
   );
 
   static const TextStyle errorText = TextStyle(
     fontSize: 12.0,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w400,
     color: Colors.red,
   );
 

@@ -109,7 +109,7 @@ class StoryWidget extends StatelessWidget {
             Text(
               index == 0 ? AppString.addThoughts : data.user.name,
               style: TextStyle(
-                fontSize: AppSpacing.s10,
+                fontSize: AppSpacing.s12,
                 color: AppColors.blackPrimary,
                 fontWeight: FontWeight.w400,
               ),

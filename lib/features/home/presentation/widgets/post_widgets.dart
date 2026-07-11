@@ -12,7 +12,7 @@ class PostWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 68,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.only(
@@ -52,7 +52,7 @@ class PostWidgets extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-              fontSize: AppSpacing.s12,
+              fontSize: AppSpacing.s14,
               fontWeight: FontWeight.w600,
             ),
           ),

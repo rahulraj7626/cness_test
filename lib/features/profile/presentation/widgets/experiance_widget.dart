@@ -34,7 +34,7 @@ class ExperianceWidget extends StatelessWidget {
               Text(
                 data.role,
                 style: TextStyle(
-                  fontSize: AppSpacing.s14,
+                  fontSize: AppSpacing.s16,
                   fontWeight: FontWeight.w600,
                   color: AppColors.blackPrimary,
                 ),
@@ -42,7 +42,7 @@ class ExperianceWidget extends StatelessWidget {
               Text(
                 data.company,
                 style: TextStyle(
-                  fontSize: AppSpacing.s13,
+                  fontSize: AppSpacing.s14,
                   fontWeight: FontWeight.w400,
                   color: AppColors.blackPrimary,
                 ),
@@ -50,7 +50,7 @@ class ExperianceWidget extends StatelessWidget {
               Text(
                 '${data.startDate} - ${data.endDate}',
                 style: TextStyle(
-                  fontSize: AppSpacing.s12,
+                  fontSize: AppSpacing.s14,
                   fontWeight: FontWeight.w400,
                   color: AppColors.blackSecondary,
                 ),
@@ -58,7 +58,7 @@ class ExperianceWidget extends StatelessWidget {
               Text(
                 data.location,
                 style: TextStyle(
-                  fontSize: AppSpacing.s12,
+                  fontSize: AppSpacing.s14,
                   fontWeight: FontWeight.w400,
                   color: AppColors.blackSecondary,
                 ),
@@ -80,7 +80,7 @@ class ExperianceWidget extends StatelessWidget {
       Text(
         '•',
         style: TextStyle(
-          fontSize: AppSpacing.s12,
+          fontSize: AppSpacing.s14,
           fontWeight: FontWeight.w500,
           color: AppColors.blackPrimary,
         ),
@@ -90,8 +90,8 @@ class ExperianceWidget extends StatelessWidget {
         child: Text(
           data,
           style: TextStyle(
-            fontSize: AppSpacing.s10,
-            fontWeight: FontWeight.w400,
+            fontSize: AppSpacing.s12,
+            fontWeight: FontWeight.w500,
             color: AppColors.blackPrimary,
           ),
         ),
