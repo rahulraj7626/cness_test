@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/constants/app_spacing.dart';
 import 'package:cness_test/core/constants/string_contants.dart';
@@ -15,7 +16,10 @@ class AppbarWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [_backButton(), _shareButton()],
+        children: [
+          GestureDetector(onTap: () => context.pop(), child: _backButton()),
+          _shareButton(),
+        ],
       ),
     );
   }

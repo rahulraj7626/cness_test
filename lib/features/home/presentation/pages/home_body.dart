@@ -60,9 +60,7 @@ class _HomeBodyState extends State<HomeBody> {
         SafeArea(
           bottom: false,
           child: BlocConsumer<HomeBloc, HomeState>(
-            listener: (context, state) {
-              // TODO: implement listener
-            },
+            listener: (context, state) {},
             builder: (context, state) {
               if (state is HomeErrorState) {
                 return Center(child: Text(state.message));

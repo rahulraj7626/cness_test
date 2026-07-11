@@ -22,9 +22,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     emit(ProfileLoadingState());
 
     try {
-      await Future.delayed(Duration(seconds: 2));
       final result = await profileUsecase.call(NoParams());
-
       result.fold(
         (error) => emit(ProfileErrorState(message: error.toString())),
         (result) => emit(ProfileLoadedState(user: result)),

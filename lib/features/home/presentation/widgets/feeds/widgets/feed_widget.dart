@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/constants/app_spacing.dart';
 import 'package:cness_test/core/extentions/int_extentions.dart';
 import 'package:cness_test/core/extentions/size_extention.dart';
 import 'package:cness_test/core/generated/assets.gen.dart';
+import 'package:cness_test/core/routes/app_router.dart';
 import 'package:cness_test/core/shared/widgets/icon_widget.dart';
 import 'package:cness_test/features/home/domain/entities/community_entity.dart';
 import 'package:cness_test/features/home/domain/entities/feed_entity.dart';
@@ -28,7 +30,7 @@ class FeedPostWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ///Header post owner widget
-          _header(data.user),
+          _header(context, data.user),
           AppSpacing.s16.height,
 
           ///Content widget the text area
@@ -46,7 +48,10 @@ class FeedPostWidget extends StatelessWidget {
           ///Highlighted comments section
           if (data.post?.featuredComment != null) ...[
             const Divider(color: AppColors.greyBorder, height: AppSpacing.s24),
-            _bottomComments(data.post?.featuredComment),
+            GestureDetector(
+              onTap: () => context.pushRoute(ProfileScreenRoute()),
+              child: _bottomComments(data.post?.featuredComment),
+            ),
           ],
         ],
       ),
@@ -150,55 +155,61 @@ class FeedPostWidget extends StatelessWidget {
   );
 
   ///Header widget
-  Widget _header(FeedUserEntity? data) => Row(
+  Widget _header(BuildContext context, FeedUserEntity? data) => Row(
     children: [
-      CircleAvatar(
-        radius: AppSpacing.s20,
-        backgroundImage: AssetImage(Assets.images.dp1.path),
+      GestureDetector(
+        onTap: () => context.pushRoute(ProfileScreenRoute()),
+        child: CircleAvatar(
+          radius: AppSpacing.s20,
+          backgroundImage: AssetImage(Assets.images.dp1.path),
+        ),
       ),
       AppSpacing.s12.width,
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  data?.name ?? '',
-                  style: TextStyle(
-                    fontSize: AppSpacing.s14,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.blackText,
+      GestureDetector(
+        onTap: () => context.pushRoute(ProfileScreenRoute()),
+        child: Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    data?.name ?? '',
+                    style: TextStyle(
+                      fontSize: AppSpacing.s14,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.blackText,
+                    ),
                   ),
-                ),
-                AppSpacing.s4.width,
-                if (data?.verified == true)
+                  AppSpacing.s4.width,
+                  if (data?.verified == true)
+                    Icon(
+                      Icons.verified,
+                      color: AppColors.bluePrimary,
+                      size: AppSpacing.s16,
+                    ),
+                ],
+              ),
+              AppSpacing.s2.width,
+              Row(
+                children: [
                   Icon(
-                    Icons.verified,
-                    color: AppColors.bluePrimary,
-                    size: AppSpacing.s16,
-                  ),
-              ],
-            ),
-            AppSpacing.s2.width,
-            Row(
-              children: [
-                Icon(
-                  Icons.public,
-                  color: AppColors.blackSecondary,
-                  size: AppSpacing.s12,
-                ),
-                AppSpacing.s4.width,
-                Text(
-                  data?.lastActive ?? "",
-                  style: TextStyle(
-                    fontSize: AppSpacing.s10,
+                    Icons.public,
                     color: AppColors.blackSecondary,
+                    size: AppSpacing.s12,
                   ),
-                ),
-              ],
-            ),
-          ],
+                  AppSpacing.s4.width,
+                  Text(
+                    data?.lastActive ?? "",
+                    style: TextStyle(
+                      fontSize: AppSpacing.s10,
+                      color: AppColors.blackSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       CircleAvatar(

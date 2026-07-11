@@ -40,13 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SafeArea(
               child: SingleChildScrollView(
                 child: BlocConsumer<ProfileBloc, ProfileState>(
-                  listener: (context, state) {
-                    if (state is ProfileLoadedState) {
-                      final data = state.user;
-                      print(data);
-                      print(data);
-                    }
-                  },
+                  listener: (context, state) {},
                   builder: (context, state) {
                     if (state is ProfileLoadedState) {
                       profileData = state.user;
