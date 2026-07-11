@@ -70,26 +70,9 @@ class FeedPostWidget extends StatelessWidget {
   SizedBox _postImages(List<AssetEntity> data) {
     return SizedBox(
       height: 200,
-      child: Stack(
-        children: [
-          Row(
-            spacing: AppSpacing.s8,
-            children: data.map((item) => _imageItem(item)).toList(),
-          ),
-          Positioned(
-            bottom: AppSpacing.s12,
-            right: AppSpacing.s12,
-            child: CircleAvatar(
-              radius: AppSpacing.s20,
-              backgroundColor: AppColors.blueSecondary,
-              child: const Icon(
-                Icons.add_to_photos,
-                color: AppColors.white,
-                size: AppSpacing.s20,
-              ),
-            ),
-          ),
-        ],
+      child: Row(
+        spacing: AppSpacing.s8,
+        children: data.map((item) => _imageItem(item)).toList(),
       ),
     );
   }
@@ -165,9 +148,9 @@ class FeedPostWidget extends StatelessWidget {
         ),
       ),
       AppSpacing.s12.width,
-      GestureDetector(
-        onTap: () => context.pushRoute(ProfileScreenRoute()),
-        child: Expanded(
+      Expanded(
+        child: GestureDetector(
+          onTap: () => context.pushRoute(ProfileScreenRoute()),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -90,13 +90,7 @@ class _HomeBodyState extends State<HomeBody> {
                           ),
                           const SliverToBoxAdapter(child: MarketRow()),
 
-                          SliverFillRemaining(
-                            hasScrollBody: true,
-                            child: FeedWidget(
-                              communities: communities,
-                              feeds: feeds,
-                            ),
-                          ),
+                          FeedWidget(communities: communities, feeds: feeds),
                         ],
                       ),
                     ),

@@ -13,22 +13,26 @@ class DummyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isLogined = SharedUtils.getLogin;
     return Scaffold(
-      body: Center(
-        child: title == 'Profile'
-            ? Padding(
-                padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s32),
-                child: ButtonWidget(
-                  label: isLogined ? 'Logout' : 'Login',
-                  onTap: () {
-                    if (isLogined) {
-                      SharedUtils.onLogout();
-                    }
-                    context.router.replaceAll([AuthScreenRoute()]);
-                  },
-                  isLoading: false,
-                ),
-              )
-            : Text(title),
+      body: SafeArea(
+        child: Center(
+          child: title == 'Profile'
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.s32,
+                  ),
+                  child: ButtonWidget(
+                    label: isLogined ? 'Logout' : 'Login',
+                    onTap: () {
+                      if (isLogined) {
+                        SharedUtils.onLogout();
+                      }
+                      context.router.replaceAll([AuthScreenRoute()]);
+                    },
+                    isLoading: false,
+                  ),
+                )
+              : Text(title),
+        ),
       ),
     );
   }

@@ -45,6 +45,17 @@ class _HomeRootState extends State<HomeRoot> {
             });
           },
         ),
+        floatingActionButton: _selectedIndex == 0
+            ? CircleAvatar(
+                radius: 30,
+                backgroundColor: AppColors.blueSecondary,
+                child: const Icon(
+                  Icons.add_to_photos,
+                  color: AppColors.white,
+                  size: 26,
+                ),
+              )
+            : null,
       ),
     );
   }

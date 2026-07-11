@@ -13,7 +13,7 @@ class FeedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return SliverList.builder(
       itemCount: feeds.length + 1,
       itemBuilder: (context, i) {
         if (i == 1 || feeds.isEmpty) {

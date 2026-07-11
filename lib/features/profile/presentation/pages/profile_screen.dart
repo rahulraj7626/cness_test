@@ -15,6 +15,7 @@ import 'package:cness_test/features/profile/presentation/widgets/experiance_widg
 import 'package:cness_test/features/profile/presentation/widgets/social_row.dart';
 import 'package:cness_test/features/profile/presentation/widgets/top_positioed_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -32,88 +33,95 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<ProfileBloc>()..add(OnProfileLoadEvent()),
-      child: Scaffold(
-        backgroundColor: AppColors.white,
-        body: Stack(
-          children: [
-            Image.asset(Assets.images.profileBg.path, fit: BoxFit.cover),
-            SafeArea(
-              child: SingleChildScrollView(
-                child: BlocConsumer<ProfileBloc, ProfileState>(
-                  listener: (context, state) {},
-                  builder: (context, state) {
-                    if (state is ProfileLoadedState) {
-                      profileData = state.user;
-                    }
-                    if (state is ProfileErrorState) {
-                      return Center(child: Text(state.message));
-                    }
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light,
+        child: Scaffold(
+          backgroundColor: AppColors.white,
+          body: Stack(
+            children: [
+              Image.asset(Assets.images.profileBg.path, fit: BoxFit.cover),
+              SafeArea(
+                child: SingleChildScrollView(
+                  child: BlocConsumer<ProfileBloc, ProfileState>(
+                    listener: (context, state) {},
+                    builder: (context, state) {
+                      if (state is ProfileLoadedState) {
+                        profileData = state.user;
+                      }
+                      if (state is ProfileErrorState) {
+                        return Center(child: Text(state.message));
+                      }
 
-                    return Skeletonizer(
-                      enabled:
-                          profileData == null || state is ProfileLoadingState,
-                      child: Stack(
-                        children: [
-                          ///Set background
-                          Align(
-                            alignment: Alignment.topCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(AppSpacing.s16),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  TopPositioedWidget(
-                                    data: profileData?.profile,
-                                  ),
-
-                                  Text(
-                                    profileData?.profile.quote ?? '',
-                                    style: TextStyle(
-                                      fontSize: AppSpacing.s12,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.white,
+                      return Skeletonizer(
+                        enabled:
+                            profileData == null || state is ProfileLoadingState,
+                        child: Stack(
+                          children: [
+                            ///Set background
+                            Align(
+                              alignment: Alignment.topCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.all(AppSpacing.s16),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    TopPositioedWidget(
+                                      data: profileData?.profile,
                                     ),
-                                    textAlign: TextAlign.center,
-                                  ),
 
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      AppSpacing.s16.height,
-                                      SocialRow(),
-                                      titleWidget(label: AppString.basicInfo),
-                                      BasicInfo(data: profileData?.basicInfo),
-                                      titleWidget(label: AppString.contact),
-                                      ContactWidget(data: profileData?.contact),
-                                      titleWidget(label: AppString.experience),
-                                      ExperianceWidget(
-                                        data: profileData?.experience ?? [],
+                                    Text(
+                                      profileData?.profile.quote ?? '',
+                                      style: TextStyle(
+                                        fontSize: AppSpacing.s12,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.white,
                                       ),
-                                      titleWidget(label: AppString.education),
-                                      EducationWidget(
-                                        data: profileData?.education ?? [],
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                      textAlign: TextAlign.center,
+                                    ),
+
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        AppSpacing.s16.height,
+                                        SocialRow(),
+                                        titleWidget(label: AppString.basicInfo),
+                                        BasicInfo(data: profileData?.basicInfo),
+                                        titleWidget(label: AppString.contact),
+                                        ContactWidget(
+                                          data: profileData?.contact,
+                                        ),
+                                        titleWidget(
+                                          label: AppString.experience,
+                                        ),
+                                        ExperianceWidget(
+                                          data: profileData?.experience ?? [],
+                                        ),
+                                        titleWidget(label: AppString.education),
+                                        EducationWidget(
+                                          data: profileData?.education ?? [],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: SafeArea(child: AppbarWidget()),
-            ),
-          ],
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: SafeArea(child: AppbarWidget()),
+              ),
+            ],
+          ),
         ),
       ),
     );
