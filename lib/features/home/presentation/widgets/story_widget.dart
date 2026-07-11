@@ -1,14 +1,18 @@
 import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/constants/app_spacing.dart';
-import 'package:cness_test/core/extentions/random.dart';
+import 'package:cness_test/core/constants/string_contants.dart';
 import 'package:cness_test/core/extentions/size_extention.dart';
 import 'package:cness_test/core/generated/assets.gen.dart';
 import 'package:cness_test/core/shared/widgets/icon_widget.dart';
+import 'package:cness_test/features/home/domain/entities/community_entity.dart';
+import 'package:cness_test/features/home/domain/entities/story_entity.dart';
 import 'package:flutter/material.dart';
 
 ///Story Satcked list widget
 class StoryWidget extends StatelessWidget {
-  const StoryWidget({super.key});
+  final List<StoryEntity> stories;
+
+  const StoryWidget({super.key, required this.stories});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,21 @@ class StoryWidget extends StatelessWidget {
         child: ListView.builder(
           padding: EdgeInsets.zero,
           scrollDirection: Axis.horizontal,
-          itemCount: 10,
+          itemCount: stories.length + 1,
           itemBuilder: (context, i) {
-            return _buildStoryItem(index: i);
+            if (i == 0) {
+              return _buildStoryItem(
+                index: 0,
+                data: StoryEntity(
+                  assets: [
+                    AssetEntity(type: 'image', url: Assets.images.story3.path),
+                  ],
+                  user: StoryUserEntity(name: '', profile: ''),
+                ),
+              );
+            }
+
+            return _buildStoryItem(index: i, data: stories[i - 1]);
           },
         ),
       ),
@@ -29,19 +45,7 @@ class StoryWidget extends StatelessWidget {
   }
 
   ///Story item widget
-  Widget _buildStoryItem({required int index}) {
-    final images = [
-      Assets.images.yoga1.path,
-      Assets.images.yoga2.path,
-      Assets.images.yoga3.path,
-    ];
-    final dps = [
-      Assets.images.dp1.path,
-      Assets.images.dp2.path,
-      Assets.images.dp3.path,
-    ];
-    final names = ['Erica Sinclair', 'John Doe', 'Jane Smith'];
-
+  Widget _buildStoryItem({required int index, required StoryEntity data}) {
     return Container(
       width: 90,
       margin: EdgeInsets.only(right: AppSpacing.s12),
@@ -59,7 +63,7 @@ class StoryWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppSpacing.s12),
                     image: DecorationImage(
-                      image: AssetImage(images.randomItem() ?? ''),
+                      image: AssetImage(data.assets[0].url),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -83,9 +87,8 @@ class StoryWidget extends StatelessWidget {
                           ),
                           child: ClipOval(
                             child: AppIcon(
-                              asset:
-                                  (dps.randomItem() ??
-                                  Assets.images.profile.path),
+                              asset: data.user.profile,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
@@ -95,7 +98,7 @@ class StoryWidget extends StatelessWidget {
           ),
           AppSpacing.s2.height,
           Text(
-            names.randomItem() ?? '',
+            index == 0 ? AppString.addThoughts : data.user.name,
             style: TextStyle(
               fontSize: AppSpacing.s10,
               color: AppColors.blackPrimary,

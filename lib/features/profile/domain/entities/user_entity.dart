@@ -29,7 +29,6 @@ class ProfileEntity {
 class BasicInfoEntity {
   final List<String> interests;
   final List<String> profession;
-
   const BasicInfoEntity({required this.interests, required this.profession});
 }
 
@@ -55,6 +54,7 @@ class ExperienceEntity {
   final String startDate;
   final String endDate;
   final String location;
+  final String image;
   final List<String> responsibilities;
 
   const ExperienceEntity({
@@ -64,10 +64,12 @@ class ExperienceEntity {
     required this.endDate,
     required this.location,
     required this.responsibilities,
+    required this.image,
   });
 }
 
 class EducationEntity {
+  final String image;
   final String course;
   final String school;
   final String startDate;
@@ -76,6 +78,7 @@ class EducationEntity {
   final List<String> responsibilities;
 
   const EducationEntity({
+    required this.image,
     required this.course,
     required this.school,
     required this.startDate,

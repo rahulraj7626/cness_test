@@ -5,15 +5,18 @@ import 'package:cness_test/core/constants/string_contants.dart';
 import 'package:cness_test/core/di/injection_container.dart';
 import 'package:cness_test/core/extentions/size_extention.dart';
 import 'package:cness_test/core/generated/assets.gen.dart';
+import 'package:cness_test/features/profile/domain/entities/user_entity.dart';
 import 'package:cness_test/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:cness_test/features/profile/presentation/widgets/appbar_widget.dart';
 import 'package:cness_test/features/profile/presentation/widgets/basic_info.dart';
 import 'package:cness_test/features/profile/presentation/widgets/contact_widget.dart';
+import 'package:cness_test/features/profile/presentation/widgets/education_widget.dart';
 import 'package:cness_test/features/profile/presentation/widgets/experiance_widget.dart';
 import 'package:cness_test/features/profile/presentation/widgets/social_row.dart';
 import 'package:cness_test/features/profile/presentation/widgets/top_positioed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()
 class ProfileScreen extends StatefulWidget {
@@ -24,6 +27,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  UserEntity? profileData;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -35,48 +39,77 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Image.asset(Assets.images.profileBg.path, fit: BoxFit.cover),
             SafeArea(
               child: SingleChildScrollView(
-                child: Stack(
-                  children: [
-                    ///Set background
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.all(AppSpacing.s16),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            TopPositioedWidget(),
+                child: BlocConsumer<ProfileBloc, ProfileState>(
+                  listener: (context, state) {
+                    if (state is ProfileLoadedState) {
+                      final data = state.user;
+                      print(data);
+                      print(data);
+                    }
+                  },
+                  builder: (context, state) {
+                    if (state is ProfileLoadedState) {
+                      profileData = state.user;
+                    }
+                    if (state is ProfileErrorState) {
+                      return Center(child: Text(state.message));
+                    }
 
-                            Text(
-                              "“Building spaces for people to learn and connect.  Powered by design and technology.”",
-                              style: TextStyle(
-                                fontSize: AppSpacing.s12,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.white,
+                    return Skeletonizer(
+                      enabled:
+                          profileData == null || state is ProfileLoadingState,
+                      child: Stack(
+                        children: [
+                          ///Set background
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(AppSpacing.s16),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  TopPositioedWidget(
+                                    data: profileData?.profile,
+                                  ),
+
+                                  Text(
+                                    profileData?.profile.quote ?? '',
+                                    style: TextStyle(
+                                      fontSize: AppSpacing.s12,
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.white,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      AppSpacing.s16.height,
+                                      SocialRow(),
+                                      titleWidget(label: AppString.basicInfo),
+                                      BasicInfo(data: profileData?.basicInfo),
+                                      titleWidget(label: AppString.contact),
+                                      ContactWidget(data: profileData?.contact),
+                                      titleWidget(label: AppString.experience),
+                                      ExperianceWidget(
+                                        data: profileData?.experience ?? [],
+                                      ),
+                                      titleWidget(label: AppString.education),
+                                      EducationWidget(
+                                        data: profileData?.education ?? [],
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              textAlign: TextAlign.center,
                             ),
-
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                AppSpacing.s16.height,
-                                SocialRow(),
-                                titleWidget(label: AppString.basicInfo),
-                                BasicInfo(),
-                                titleWidget(label: AppString.contact),
-                                ContactWidget(),
-                                titleWidget(label: AppString.experience),
-                                ExperianceWidget(),
-                                titleWidget(label: AppString.education),
-                                ExperianceWidget(),
-                              ],
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
               ),
             ),
@@ -111,19 +144,3 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 }
-// return BlocProvider(
-//       create: (context) => sl<ProfileBloc>()..add(OnProfileLoadEvent()),
-//       child: Scaffold(
-//         body: BlocBuilder<ProfileBloc, ProfileState>(
-//           builder: (context, state) {
-//             if (state is ProfileLoadedState) {
-//               return Column(children: [Text(state.user.profile.name)]);
-//             }
-//             if (state is ProfileErrorState) {
-//               return Center(child: Text(state.message));
-//             }
-//             return Center(child: CircularProgressIndicator());
-//           },
-//         ),
-//       ),
-//     );

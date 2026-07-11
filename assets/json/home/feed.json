@@ -3,7 +3,7 @@
     {
       "user": {
         "name": "Nandhiji",
-        "profile_image": "https://picsum.photos/100?random=1",
+        "profile_image": "assets/images/dp3.png",
         "last_active": "2 hours ago",
         "verified": true,
         "tags": 0,
@@ -14,19 +14,20 @@
         "assets": [
           {
             "type": "image",
-            "url": "https://picsum.photos/600/600?random=11"
+            "url": "assets/images/yoga1.png"
           },
           {
             "type": "image",
-            "url": "https://picsum.photos/600/600?random=12"
+            "url": "assets/images/yoga2.png"
           },
           {
             "type": "image",
-            "url": "https://picsum.photos/600/600?random=13"
+            "url": "assets/images/yoga3.png"
           }
         ],
         "likes": 1700,
         "comments": 1300,
+        "shares": 1300,
         "reaction": "heart",
         "featured_comment": {
           "user": "Mark Ramos",
@@ -38,7 +39,7 @@
     {
       "user": {
         "name": "Sophia Carter",
-        "profile_image": "https://picsum.photos/100?random=2",
+        "profile_image": "assets/images/dp2.png",
         "last_active": "5 hours ago",
         "verified": false,
         "tags": 5,
@@ -49,18 +50,14 @@
         "assets": [],
         "likes": 845,
         "comments": 126,
-        "reaction": "star",
-        "featured_comment": {
-          "user": "Emily Ross",
-          "comment": "Looks peaceful!",
-          "time": "10m"
-        }
+        "shares": 1300,
+        "reaction": "star"
       }
     },
     {
       "user": {
         "name": "David Wilson",
-        "profile_image": "https://picsum.photos/100?random=3",
+        "profile_image": "assets/images/dp1.png",
         "last_active": "30 minutes ago",
         "verified": true,
         "tags": 2,
@@ -71,11 +68,12 @@
         "assets": [
           {
             "type": "image",
-            "url": "https://picsum.photos/600/600?random=21"
+            "url": "assets/images/yoga2.png"
           }
         ],
         "likes": 2340,
         "comments": 542,
+        "shares": 1300,
         "reaction": "like",
         "featured_comment": {
           "user": "John Mathew",
@@ -86,33 +84,29 @@
     },
     {
       "user": {
-        "name": "Erica Sinclair",
-        "profile_image": "https://picsum.photos/100?random=4",
-        "last_active": "Yesterday",
+        "name": "Nandhiji",
+        "profile_image": "assets/images/dp3.png",
+        "last_active": "2 hours ago",
         "verified": true,
-        "tags": 1,
-        "type": "Private"
+        "tags": 0,
+        "type": "Public"
       },
       "post": {
-        "title": "Every small step you take today becomes tomorrow's success.",
+        "title": "Yoga is not about touching your toes. It's about what you learn on the way down.",
         "assets": [
           {
             "type": "image",
-            "url": "https://picsum.photos/600/600?random=31"
+            "url": "assets/images/yoga3.png"
           },
           {
             "type": "image",
-            "url": "https://picsum.photos/600/600?random=32"
+            "url": "assets/images/yoga2.png"
           }
         ],
-        "likes": 965,
-        "comments": 214,
-        "reaction": "clap",
-        "featured_comment": {
-          "user": "Sarah Lee",
-          "comment": "Very inspiring ❤️",
-          "time": "1h"
-        }
+        "likes": 1700,
+        "comments": 1300,
+        "shares": 1300,
+        "reaction": "heart"
       }
     }
   ]

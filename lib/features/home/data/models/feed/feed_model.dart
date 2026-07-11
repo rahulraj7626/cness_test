@@ -61,6 +61,7 @@ class PostModel {
   final String? title;
   final List<AssetModel>? assets;
   final int? likes;
+  final int? shares;
   final int? comments;
   final String? reaction;
 
@@ -72,6 +73,7 @@ class PostModel {
     this.assets,
     this.likes,
     this.comments,
+    this.shares,
     this.reaction,
     this.featuredComment,
   });

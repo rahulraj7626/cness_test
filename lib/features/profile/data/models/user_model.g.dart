@@ -82,6 +82,7 @@ ExperienceModel _$ExperienceModelFromJson(Map<String, dynamic> json) =>
       company: json['company'] as String,
       startDate: json['start_date'] as String,
       endDate: json['end_date'] as String,
+      image: json['image'] as String,
       location: json['location'] as String,
       responsibilities: (json['responsibilities'] as List<dynamic>)
           .map((e) => e as String)
@@ -95,6 +96,7 @@ Map<String, dynamic> _$ExperienceModelToJson(ExperienceModel instance) =>
       'start_date': instance.startDate,
       'end_date': instance.endDate,
       'location': instance.location,
+      'image': instance.image,
       'responsibilities': instance.responsibilities,
     };
 
@@ -105,6 +107,7 @@ EducationModel _$EducationModelFromJson(Map<String, dynamic> json) =>
       startDate: json['start_date'] as String,
       endDate: json['end_date'] as String,
       location: json['location'] as String,
+      image: json['image'] as String,
       responsibilities: (json['responsibilities'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -117,5 +120,6 @@ Map<String, dynamic> _$EducationModelToJson(EducationModel instance) =>
       'start_date': instance.startDate,
       'end_date': instance.endDate,
       'location': instance.location,
+      'image': instance.image,
       'responsibilities': instance.responsibilities,
     };

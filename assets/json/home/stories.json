@@ -3,80 +3,60 @@
         {
             "user": {
                 "name": "Nandhiji",
-                "profile": "https://picsum.photos/100?random=1"
+                "profile": "assets/images/dp1.png"
             },
             "assets": [
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=11"
+                    "url": "assets/images/story1.png"
                 },
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=12"
+                    "url": "assets/images/story2.png"
                 },
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=13"
+                    "url": "assets/images/story3.png"
                 }
             ]
         },
         {
             "user": {
                 "name": "Erica Sinclair",
-                "profile": "https://picsum.photos/100?random=2"
+                "profile": "assets/images/dp2.png"
             },
             "assets": [
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=21"
+                    "url": "assets/images/story3.png"
                 },
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=22"
+                    "url": "assets/images/story1.png"
                 },
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=23"
+                    "url": "assets/images/story2.png"
                 }
             ]
         },
         {
             "user": {
                 "name": "Will Byers",
-                "profile": "https://picsum.photos/100?random=3"
+                "profile": "assets/images/dp3.png"
             },
             "assets": [
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=31"
+                    "url": "assets/images/story2.png"
                 },
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=32"
+                    "url": "assets/images/story1.png"
                 },
                 {
                     "type": "image",
-                    "url": "https://picsum.photos/400/700?random=33"
-                }
-            ]
-        },
-        {
-            "user": {
-                "name": "Mark Ramos",
-                "profile": "https://picsum.photos/100?random=4"
-            },
-            "assets": [
-                {
-                    "type": "image",
-                    "url": "https://picsum.photos/400/700?random=41"
-                },
-                {
-                    "type": "image",
-                    "url": "https://picsum.photos/400/700?random=42"
-                },
-                {
-                    "type": "image",
-                    "url": "https://picsum.photos/400/700?random=43"
+                    "url": "assets/images/story3.png"
                 }
             ]
         }

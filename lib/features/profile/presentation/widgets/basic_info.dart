@@ -2,19 +2,25 @@ import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/constants/app_spacing.dart';
 import 'package:cness_test/core/constants/string_contants.dart';
 import 'package:cness_test/core/extentions/size_extention.dart';
+import 'package:cness_test/features/profile/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
 class BasicInfo extends StatelessWidget {
-  const BasicInfo({super.key});
+  final BasicInfoEntity? data;
+  const BasicInfo({super.key, this.data});
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [_itemWidget(), AppSpacing.s12.height, _itemWidget()],
+      children: [
+        _itemWidget(data?.interests ?? []),
+        AppSpacing.s12.height,
+        _itemWidget(data?.profession ?? []),
+      ],
     );
   }
 
-  Column _itemWidget() => Column(
+  Column _itemWidget(List<String> data) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
@@ -26,11 +32,18 @@ class BasicInfo extends StatelessWidget {
         ),
       ),
       AppSpacing.s8.height,
-      Row(children: [_shareButton(), _shareButton(), _shareButton()]),
+      Align(
+        alignment: AlignmentGeometry.centerLeft,
+        child: Wrap(
+          spacing: AppSpacing.s8,
+          runSpacing: AppSpacing.s8,
+          children: data.map((item) => _chipWidget(item)).toList(),
+        ),
+      ),
     ],
   );
 
-  Container _shareButton() => Container(
+  Container _chipWidget(String label) => Container(
     margin: EdgeInsets.only(right: AppSpacing.s6),
     padding: EdgeInsets.symmetric(
       horizontal: AppSpacing.s10,
@@ -41,7 +54,7 @@ class BasicInfo extends StatelessWidget {
       borderRadius: BorderRadius.circular(AppSpacing.s32),
     ),
     child: Text(
-      "Design",
+      label,
       style: TextStyle(
         fontSize: AppSpacing.s12,
         fontWeight: FontWeight.w500,
