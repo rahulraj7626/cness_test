@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/di/injection_container.dart';
+import 'package:cness_test/core/generated/assets.gen.dart';
 import 'package:cness_test/features/home/presentation/bloc/home_bloc.dart';
 import 'package:cness_test/features/home/presentation/pages/dummy_page.dart';
 import 'package:cness_test/features/home/presentation/pages/home_body.dart';
@@ -24,9 +25,9 @@ class _HomeRootState extends State<HomeRoot> {
   ///Bottom navigation bar items
   List<Widget> widgets = [
     HomeBody(),
-    DummyPage(title: "Player"),
-    DummyPage(title: "Shop"),
-    DummyPage(title: "Entertainment"),
+    DummyPage(title: Assets.icons.bottom2.path),
+    DummyPage(title: Assets.icons.bottom3.path),
+    DummyPage(title: Assets.icons.bottom3.path),
     DummyPage(title: "Profile"),
   ];
 

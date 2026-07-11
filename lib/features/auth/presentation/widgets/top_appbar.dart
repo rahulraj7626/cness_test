@@ -15,8 +15,9 @@ class TopAppbar extends StatelessWidget {
     return SliverAppBar(
       expandedHeight: 160.0,
       pinned: true,
+      centerTitle: false,
       elevation: 0,
-      backgroundColor: const Color(0xFF1B1464),
+      backgroundColor: AppColors.blueTertiary,
       title: AppIcon(asset: Assets.icons.logo.path, size: 32),
       flexibleSpace: FlexibleSpaceBar(
         background: Container(

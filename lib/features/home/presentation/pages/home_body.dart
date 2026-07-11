@@ -58,7 +58,6 @@ class _HomeBodyState extends State<HomeBody> {
         ),
 
         SafeArea(
-          bottom: false,
           child: BlocConsumer<HomeBloc, HomeState>(
             listener: (context, state) {},
             builder: (context, state) {
@@ -82,6 +81,7 @@ class _HomeBodyState extends State<HomeBody> {
                     AppSpacing.s8.height,
                     Expanded(
                       child: CustomScrollView(
+                        physics: const ClampingScrollPhysics(),
                         slivers: [
                           ///All Home UI widgets
                           const SliverToBoxAdapter(child: PostWidgets()),
@@ -89,7 +89,6 @@ class _HomeBodyState extends State<HomeBody> {
                             child: StoryWidget(stories: stories),
                           ),
                           const SliverToBoxAdapter(child: MarketRow()),
-
                           FeedWidget(communities: communities, feeds: feeds),
                         ],
                       ),
