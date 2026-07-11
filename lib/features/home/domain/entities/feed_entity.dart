@@ -9,7 +9,6 @@ class FeedsEntity {
 class FeedEntity {
   final FeedUserEntity? user;
   final PostEntity? post;
-
   const FeedEntity({this.user, this.post});
 }
 
@@ -36,11 +35,13 @@ class PostEntity {
   final List<AssetEntity> assets;
   final int likes;
   final int comments;
+  final int shares;
   final String reaction;
   final FeaturedCommentEntity? featuredComment;
 
   const PostEntity({
     required this.title,
+    required this.shares,
     required this.assets,
     required this.likes,
     required this.comments,

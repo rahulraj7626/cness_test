@@ -1,12 +1,15 @@
 import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/constants/app_spacing.dart';
+import 'package:cness_test/core/extentions/list_extentions.dart';
 import 'package:cness_test/core/extentions/size_extention.dart';
 import 'package:cness_test/core/generated/assets.gen.dart';
 import 'package:cness_test/core/shared/widgets/icon_widget.dart';
+import 'package:cness_test/features/profile/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
 class TopPositioedWidget extends StatelessWidget {
-  const TopPositioedWidget({super.key});
+  final ProfileEntity? data;
+  const TopPositioedWidget({super.key, this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +20,7 @@ class TopPositioedWidget extends StatelessWidget {
           height: 120,
           width: 120,
           padding: EdgeInsets.all(AppSpacing.s4),
+          clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
             color: AppColors.white,
             shape: BoxShape.circle,
@@ -24,7 +28,7 @@ class TopPositioedWidget extends StatelessWidget {
           child: AppIcon(asset: Assets.images.profile.path),
         ),
         Text(
-          "Nandhiji",
+          data?.name ?? '',
           style: TextStyle(
             fontSize: AppSpacing.s24,
             fontWeight: FontWeight.w600,
@@ -32,7 +36,7 @@ class TopPositioedWidget extends StatelessWidget {
           ),
         ),
         Text(
-          "Yoga Master l Environmentalist",
+          (data?.specialization ?? []).joinLine,
           style: TextStyle(
             fontSize: AppSpacing.s14,
             fontWeight: FontWeight.w400,

@@ -89,6 +89,7 @@ class ExperienceModel {
   @JsonKey(name: 'end_date')
   final String endDate;
   final String location;
+  final String image;
   final List<String> responsibilities;
 
   const ExperienceModel({
@@ -96,6 +97,7 @@ class ExperienceModel {
     required this.company,
     required this.startDate,
     required this.endDate,
+    required this.image,
     required this.location,
     required this.responsibilities,
   });
@@ -115,6 +117,7 @@ class EducationModel {
   @JsonKey(name: 'end_date')
   final String endDate;
   final String location;
+  final String image;
   final List<String> responsibilities;
 
   const EducationModel({
@@ -123,6 +126,7 @@ class EducationModel {
     required this.startDate,
     required this.endDate,
     required this.location,
+    required this.image,
     required this.responsibilities,
   });
 

@@ -5,17 +5,17 @@ import 'package:cness_test/core/shared/widgets/icon_widget.dart';
 import 'package:cness_test/features/profile/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 
-class ExperianceWidget extends StatelessWidget {
-  final List<ExperienceEntity> data;
+class EducationWidget extends StatelessWidget {
+  final List<EducationEntity> data;
 
-  const ExperianceWidget({super.key, required this.data});
+  const EducationWidget({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
     return Column(children: data.map((item) => _itemWidget(item)).toList());
   }
 
-  Padding _itemWidget(ExperienceEntity data) => Padding(
+  Padding _itemWidget(EducationEntity data) => Padding(
     padding: const EdgeInsets.symmetric(vertical: AppSpacing.s6),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,7 @@ class ExperianceWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                data.role,
+                data.course,
                 style: TextStyle(
                   fontSize: AppSpacing.s14,
                   fontWeight: FontWeight.w600,
@@ -40,7 +40,7 @@ class ExperianceWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                data.company,
+                data.school,
                 style: TextStyle(
                   fontSize: AppSpacing.s13,
                   fontWeight: FontWeight.w400,
@@ -91,7 +91,7 @@ class ExperianceWidget extends StatelessWidget {
           data,
           style: TextStyle(
             fontSize: AppSpacing.s10,
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w500,
             color: AppColors.blackPrimary,
           ),
         ),

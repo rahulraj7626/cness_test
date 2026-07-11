@@ -1,3 +1,4 @@
+import 'package:cness_test/core/config/preferance.dart';
 import 'package:cness_test/core/routes/app_router.dart';
 import 'package:cness_test/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:cness_test/features/home/data/datasources/home_datasource.dart';
@@ -21,6 +22,8 @@ final sl = GetIt.instance;
 
 ///Initialise all dependancy classess and blocs , repositories here
 Future<void> init() async {
+  await SharedPref().init();
+
   /// Blocs
   sl.registerFactory(() => AuthBloc());
 
