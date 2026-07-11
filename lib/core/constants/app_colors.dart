@@ -12,6 +12,7 @@ class AppColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color greyLight = Color(0xFFF5F6F9);
   static const Color greyBorder = Color(0xFFEFF0F6);
+  static const Color greySecondary = Color(0xFFF1F4F5);
 
   ///Red Shades
 

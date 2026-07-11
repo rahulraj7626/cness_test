@@ -5,20 +5,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///SVG , PNG, JPG Icons
 class AppIcon extends StatelessWidget {
   final String asset;
-  final double size;
+  final double? size;
   final Color? color;
   final BoxFit fit;
 
   const AppIcon({
     super.key,
     required this.asset,
-    this.size = 24,
+    this.size,
     this.color,
     this.fit = BoxFit.contain,
   });
 
   @override
   Widget build(BuildContext context) {
+    ///For svg format
     if (asset.endsWith('.svg')) {
       return SvgPicture.asset(
         asset,
@@ -31,6 +32,7 @@ class AppIcon extends StatelessWidget {
       );
     }
 
+    ///For other extentions like png, jpg
     return Image.asset(
       asset,
       width: size,

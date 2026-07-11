@@ -1,49 +1,53 @@
+import 'package:cness_test/core/constants/app_colors.dart';
+import 'package:cness_test/core/constants/app_spacing.dart';
+import 'package:cness_test/core/constants/string_contants.dart';
+import 'package:cness_test/core/extentions/size_extention.dart';
+import 'package:cness_test/core/generated/assets.gen.dart';
+import 'package:cness_test/core/shared/widgets/icon_widget.dart';
 import 'package:flutter/material.dart';
 
+///Stack positioned widget- AI search widget
 class SearchWidget extends StatelessWidget {
   const SearchWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      height: AppSpacing.s48,
+      margin: const EdgeInsets.symmetric(horizontal: AppSpacing.s16),
+      padding: EdgeInsets.symmetric(horizontal: AppSpacing.s6),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(AppSpacing.s24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withAlpha(10),
-            blurRadius: 12,
+            color: AppColors.blackSecondary.withAlpha(70),
+            blurRadius: 4,
             offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Row(
         children: [
-          const CircleAvatar(
-            radius: 20,
+          CircleAvatar(
+            radius: AppSpacing.s16,
             backgroundColor: Colors.black,
-            child: Icon(Icons.person, size: 24, color: Colors.white),
+            child: AppIcon(asset: Assets.images.appIcon12.path),
           ),
-          const SizedBox(width: 12),
+          AppSpacing.s12.width,
           Expanded(
             child: Text(
-              'What would you like to do Sri?',
-              style: TextStyle(color: Colors.grey.shade500, fontSize: 15),
+              AppString.searchHint,
+              style: TextStyle(
+                color: Colors.grey.shade500,
+                fontSize: AppSpacing.s13,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
-          const Text(
-            'Ariven AI',
-            style: TextStyle(
-              color: Color(0xFF5E60CE),
-              fontWeight: FontWeight.w600,
-              fontSize: 15,
-            ),
-          ),
-          const SizedBox(width: 4),
-          const Icon(Icons.auto_awesome, color: Color(0xFF5E60CE), size: 20),
-          const SizedBox(width: 8),
+          AppSpacing.s4.width,
+          AppIcon(asset: Assets.icons.ai.path, size: AppSpacing.s20),
+          AppSpacing.s8.width,
         ],
       ),
     );

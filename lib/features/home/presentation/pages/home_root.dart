@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/di/injection_container.dart';
 import 'package:cness_test/features/home/presentation/bloc/home_bloc.dart';
 import 'package:cness_test/features/home/presentation/pages/dummy_page.dart';
@@ -7,6 +8,7 @@ import 'package:cness_test/features/home/presentation/widgets/custom_bottom_nav_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+///Home root widget includes bottom navigation bar
 @RoutePage()
 class HomeRoot extends StatefulWidget {
   const HomeRoot({super.key});
@@ -18,6 +20,7 @@ class HomeRoot extends StatefulWidget {
 class _HomeRootState extends State<HomeRoot> {
   int _selectedIndex = 0;
 
+  ///Bottom navigation bar items
   List<Widget> widgets = [
     HomeBody(),
     DummyPage(title: "Player"),
@@ -32,7 +35,7 @@ class _HomeRootState extends State<HomeRoot> {
       create: (context) => sl<HomeBloc>()..add(OnLoadHomeDataEvent()),
       child: Scaffold(
         extendBody: true,
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.greySecondary,
         body: widgets[_selectedIndex],
         bottomNavigationBar: CustomBottomNavBar(
           selectedIndex: _selectedIndex,

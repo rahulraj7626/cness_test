@@ -1,6 +1,11 @@
+import 'package:cness_test/core/constants/app_colors.dart';
 import 'package:cness_test/core/constants/app_spacing.dart';
+import 'package:cness_test/core/generated/assets.gen.dart';
+import 'package:cness_test/core/shared/widgets/icon_widget.dart';
 import 'package:flutter/material.dart';
 
+///The custom bottom navigation bar with 5 items
+///Callback as onItemTapped with index
 class CustomBottomNavBar extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onItemTapped;
@@ -15,105 +20,62 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 90,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
+          topLeft: Radius.circular(AppSpacing.s32),
+          topRight: Radius.circular(AppSpacing.s32),
         ),
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 10,
-            spreadRadius: 2,
+            blurRadius: AppSpacing.s10,
+            spreadRadius: AppSpacing.s2,
             offset: Offset(0, -2),
           ),
         ],
       ),
+
+      ///Build bottom nav items and return with its index
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildIconButton(0, Icons.home_rounded),
-          _buildIconButton(1, Icons.slow_motion_video_rounded),
-          _buildIconButton(2, Icons.storefront_rounded),
-          _buildTwoCirclesIcon(3),
+          _buildIconButton(0, Assets.icons.bottom1.path),
+          _buildIconButton(1, Assets.icons.bottom2.path),
+          _buildIconButton(2, Assets.icons.bottom3.path),
+          _buildIconButton(3, Assets.icons.bottom4.path),
           _buildProfileIcon(4),
         ],
       ),
     );
   }
 
-  Widget _buildIconButton(int index, IconData icon) {
+  ///Bottom nav item widget
+  Widget _buildIconButton(int index, String icon) {
     final isActive = selectedIndex == index;
-    return IconButton(
-      icon: Icon(
-        icon,
-        size: 30,
-        color: isActive ? const Color(0xFF5E60CE) : const Color(0xFF9E9E9E),
-      ),
-      onPressed: () => onItemTapped(index),
-    );
-  }
-
-  Widget _buildTwoCirclesIcon(int index) {
-    final isActive = selectedIndex == index;
-    final color = isActive ? const Color(0xFF5E60CE) : const Color(0xFF9E9E9E);
-
-    return GestureDetector(
+    return InkWell(
       onTap: () => onItemTapped(index),
-      child: SizedBox(
-        width: AppSpacing.s48,
-        height: AppSpacing.s48,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              left: 8,
-              bottom: 10,
-              child: Container(
-                width: AppSpacing.s20,
-                height: AppSpacing.s20,
-                decoration: BoxDecoration(shape: BoxShape.circle, color: color),
-              ),
-            ),
-            Positioned(
-              right: AppSpacing.s8,
-              top: 10,
-              child: Container(
-                width: AppSpacing.s16,
-                height: AppSpacing.s16,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: color,
-                  border: Border.all(color: Colors.white, width: AppSpacing.s2),
-                ),
-              ),
-            ),
-          ],
-        ),
+      child: AppIcon(
+        asset: icon,
+        color: isActive ? AppColors.blueSecondary : AppColors.blackSecondary,
       ),
     );
   }
 
+  ///Profile item widget
   Widget _buildProfileIcon(int index) {
     final isActive = selectedIndex == index;
     return GestureDetector(
       onTap: () => onItemTapped(index),
       child: Container(
-        padding: EdgeInsets.all(AppSpacing.s4),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(
-            color: isActive ? const Color(0xFF5E60CE) : Colors.transparent,
+            color: isActive ? AppColors.blueSecondary : Colors.transparent,
             width: AppSpacing.s2,
           ),
         ),
-        child: const CircleAvatar(
-          radius: AppSpacing.s16,
-          backgroundColor: Colors.black,
-
-          child: Icon(Icons.person, size: AppSpacing.s20, color: Colors.white),
-        ),
+        child: AppIcon(asset: Assets.images.dp1.path, size: AppSpacing.s24),
       ),
     );
   }
